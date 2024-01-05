@@ -1,0 +1,86 @@
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    justify-content: space-between;
+    background-color: #1e1e1e;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    height: 342px;
+    width: 280px;
+}
+
+.modal-title {
+    display: flex;
+    justify-content: center;
+}
+
+.modal-content-infos {
+    margin-top: 50px;
+}
+
+.modal-date-now {
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-content-time, .modal-content-speed {
+    background-color: #2e2e2e;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 10px;
+    border-top: 2px solid white;
+}
+
+.modal-content-speed {
+    border-bottom: 2px solid white;
+}
+
+.time-title, .speed-title {
+    font-size: 13px;
+}
+.time-num, .speed-num {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.modal-content-buttons {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content button {
+    width: 105px;
+    background: white;
+    font-size: 13px;
+    font-weight: bold;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.modal-content button:hover {
+    border: white solid 1px;
+    background-color: #2a2a2a;
+    color: white;
+}
