@@ -8,6 +8,7 @@ import InputText from "../components/InputText";
 import "../styles/TypingPage.css"
 import axios from "axios";
 import {useParams, useNavigate} from "react-router-dom";
+import TypingCompleteModal from "../components/modal/TypingCompleteModal";
 
 function TypingPage() {
     const [LONG_TEXTS, setLONG_TEXTS] = useState(['']);
@@ -18,9 +19,14 @@ function TypingPage() {
 
     const [startTime, setStartTime] = useState(null);
     const [typedChars, setTypedChars] = useState(0);
-    const [typingSpeed, setTypingSpeed] = useState('0');  // 실시간 타이핑 속도 상태
+    const [typingSpeed, setTypingSpeed] = useState(0);  // 실시간 타이핑 속도 상태
 
     const [elapsedTime, setElapsedTime] = useState(null);  // 경과된 시간 상태
+
+    const [totalTypingSpeed, setTotalTypingSpeed] = useState(0);
+    const [totalElapsedTime, setTotalElapsedTime] = useState(null);
+
+    const [showCompleteModal, setShowCompleteModal] = useState(false);
 
     const params = useParams();
     const navigate = useNavigate();
@@ -33,7 +39,7 @@ function TypingPage() {
                     setTotalIndex(res.data.length)
                 }
             })
-            .catch(error => {
+            .catch(() => {
                 navigate("/");
             });
     }, [navigate, params.codeLang, params.textId]);
@@ -55,7 +61,7 @@ function TypingPage() {
         };
     }, []);
 
-    // elapsedTime을 업데이트하는 useEffect
+    // elapsedTime 을 업데이트하는 useEffect
     useEffect(() => {
         const elapsedTimer = setInterval(() => {
             if (elapsedTime !== null) {
@@ -66,19 +72,18 @@ function TypingPage() {
         return () => clearInterval(elapsedTimer);
     }, [elapsedTime]);
 
-    // typingSpeed를 업데이트하는 useEffect
+    // typingSpeed 를 업데이트하는 useEffect
     useEffect(() => {
         const calculateTypingSpeed = () => {
             if (!startTime || typedChars === 0) {
-                return '0';
+                return 0;
             }
 
             const endTime = Date.now();
             const durationInMinutes = (endTime - startTime) / 1000;
             const speed = (typedChars / durationInMinutes) * 60;
 
-            return `${speed.toFixed(0)}`;
-        }
+            return Math.round(speed)}
 
         const timer = setInterval(() => {
             const speed = calculateTypingSpeed();
@@ -117,13 +122,16 @@ function TypingPage() {
     }, [scrollMove]);
 
     const typingEnd = useCallback(() => {
-        alert('경과시간 = ' + formatTime(elapsedTime));
+        setTotalElapsedTime(elapsedTime);
+        setShowCompleteModal(true);
+
         setCurrentIndex(0);
         setElapsedTime(null);
-    }, [elapsedTime]);
+    },[elapsedTime]);
 
     const handleEnterPress = useCallback(() => {
         if (inputValue === LONG_TEXTS[currentIndex].trim()) {
+            setTotalTypingSpeed(totalTypingSpeed + typingSpeed);
             if (currentIndex === totalIndex - 1) { // 마지막 줄인지 확인
                 typingEnd();
             } else {
@@ -145,7 +153,7 @@ function TypingPage() {
 
             scrollMove();
         }
-    }, [LONG_TEXTS, currentIndex, inputValue, scrollMove, totalIndex, typingEnd]);
+    }, [LONG_TEXTS, currentIndex, inputValue, scrollMove, totalIndex, totalTypingSpeed, typingEnd, typingSpeed]);
 
     const formatTime = (seconds) => {
         const hours = Math.floor(seconds / 3600);
@@ -159,6 +167,20 @@ function TypingPage() {
         return `${hoursStr}${minutesStr}:${secondsStr}`;
     }
 
+    const handleCloseTypingCompleteModal = () => {
+        setShowCompleteModal(false);
+        setTotalElapsedTime(null);
+        setTotalTypingSpeed(0);
+    }
+    const handleMoveHome = () => {
+        handleCloseTypingCompleteModal()
+        navigate("/")
+    };
+    const handleMoveCodeList = () => {
+        handleCloseTypingCompleteModal()
+        navigate("/" + params.codeLang);
+    };
+
     return (
         <div>
             <Header/>
@@ -168,8 +190,7 @@ function TypingPage() {
                     currentIndex={currentIndex}
                     totalIndex={totalIndex}
                     typingSpeed={typingSpeed}
-                    elapsedTime={elapsedTime}
-                    formatTime={formatTime}
+                    elapsedTime={formatTime(elapsedTime)}
                 />
                 <InputText
                     text={LONG_TEXTS[currentIndex].trim()}
@@ -177,9 +198,19 @@ function TypingPage() {
                     handleInputChange={handleInputChange}
                     handleEnterPress={handleEnterPress}
                     handleInputFocus={handleInputFocus}
+                    isModalOpen={showCompleteModal}
                 />
             </div>
             <Footer/>
+            {showCompleteModal && (
+                <TypingCompleteModal
+                    time={formatTime(totalElapsedTime)}
+                    speed={Math.round(totalTypingSpeed / totalIndex)}
+                    onClose={handleCloseTypingCompleteModal}
+                    moveHome={handleMoveHome}
+                    moveCodeList={handleMoveCodeList}
+                />
+            )}
         </div>
     );
 }

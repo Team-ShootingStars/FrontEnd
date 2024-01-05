@@ -1,6 +1,13 @@
-import React from "react";
+import React, {useEffect} from "react";
 
-function InputText({text, currentIndex, inputValue, handleInputFocus, handleInputChange, handleEnterPress}) {
+function InputText({text, inputValue, handleInputFocus, handleInputChange, handleEnterPress, isModalOpen}) {
+
+    useEffect(() => {
+        const inputElement = document.querySelector('input');
+        if (inputElement) {
+            inputElement.disabled = isModalOpen;
+        }
+    }, [isModalOpen]);
 
     const renderHighlightedText = () => {
         let inputChars = Array.from(inputValue);
