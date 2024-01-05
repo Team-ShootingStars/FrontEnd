@@ -7,7 +7,7 @@ import InputText from "../components/InputText";
 
 import "../styles/TypingPage.css"
 import axios from "axios";
-import {useParams} from "react-router-dom";
+import {useParams, useNavigate} from "react-router-dom";
 
 function TypingPage() {
     const [LONG_TEXTS, setLONG_TEXTS] = useState(['']);
@@ -23,14 +23,20 @@ function TypingPage() {
     const [elapsedTime, setElapsedTime] = useState(null);  // 경과된 시간 상태
 
     const params = useParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
-        axios('/get/' + params.textId)
+        axios('/typingText/' + params.textId)
             .then(res => {
-                setLONG_TEXTS(res.data);
-                setTotalIndex(res.data.length)
+                if (res.status === 200) {
+                    setLONG_TEXTS(res.data);
+                    setTotalIndex(res.data.length)
+                }
+            })
+            .catch(error => {
+                navigate("/");
             });
-    }, [params.textId]);
+    }, [navigate, params.codeLang, params.textId]);
 
     useEffect(() => {
         const preventPaste = (e) => {

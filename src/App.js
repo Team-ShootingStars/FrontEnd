@@ -9,7 +9,7 @@ function App() {
         <div className="App">
             <Router>
                 <Routes>
-                    <Route path={"/typing/:textId"} element={<TypingPage/>} />
+                    <Route path={":codeLang/typing/:textId"} element={<TypingPage/>} />
                 </Routes>
             </Router>
         </div>
