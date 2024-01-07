@@ -1,6 +1,6 @@
 import React from "react";
 
-function MainText({longText, currentIndex}) {
+function TypingMainText({longText, currentIndex}) {
     return (
         <div className={"long-text-container"}>
             {longText.map((text, index) => (
@@ -20,4 +20,4 @@ function MainText({longText, currentIndex}) {
     )
 }
 
-export default MainText;
+export default TypingMainText;

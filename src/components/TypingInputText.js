@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 
-function InputText({text, inputValue, handleInputFocus, handleInputChange, handleEnterPress, isModalOpen}) {
+function TypingInputText({text, inputValue, handleInputFocus, handleInputChange, handleEnterPress, isModalOpen}) {
 
     useEffect(() => {
         const inputElement = document.querySelector('input');
@@ -53,4 +53,4 @@ function InputText({text, inputValue, handleInputFocus, handleInputChange, handl
     );
 }
 
-export default InputText;
+export default TypingInputText;
