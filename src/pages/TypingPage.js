@@ -1,9 +1,9 @@
 import React, {useCallback, useEffect, useState} from "react";
 import Footer from "../components/Footer";
-import MainText from "../components/MainText";
+import TypingMainText from "../components/TypingMainText";
 import TypingInfo from "../components/TypingInfo";
 import Header from "../components/Header";
-import InputText from "../components/InputText";
+import TypingInputText from "../components/TypingInputText";
 
 import "../styles/TypingPage.css"
 import axios from "axios";
@@ -185,14 +185,14 @@ function TypingPage() {
         <div>
             <Header/>
             <div className={"main-container"}>
-                <MainText longText={LONG_TEXTS} currentIndex={currentIndex}/>
+                <TypingMainText longText={LONG_TEXTS} currentIndex={currentIndex}/>
                 <TypingInfo
                     currentIndex={currentIndex}
                     totalIndex={totalIndex}
                     typingSpeed={typingSpeed}
                     elapsedTime={formatTime(elapsedTime)}
                 />
-                <InputText
+                <TypingInputText
                     text={LONG_TEXTS[currentIndex].trim()}
                     inputValue={inputValue}
                     handleInputChange={handleInputChange}
