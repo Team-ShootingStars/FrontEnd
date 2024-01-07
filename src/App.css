@@ -3,22 +3,3 @@
   display: flex;
   flex-direction: column;
 }
-
-.header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-  height: 80px;
-  color: black;
-  background: wheat;
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 30px;
-  height: 70px;
-  background: cornflowerblue;
-}
