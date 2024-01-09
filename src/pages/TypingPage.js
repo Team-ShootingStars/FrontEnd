@@ -50,7 +50,11 @@ function TypingPage() {
     }
 
     useEffect(() => {
-        fetchData();
+        if (params.textId === null || isNaN(params.textId)) {
+            navigate("/NotFound");
+        } else {
+            fetchData();
+        }
     }, [navigate, params.codeLang, params.textId]);
 
     useEffect(() => {
