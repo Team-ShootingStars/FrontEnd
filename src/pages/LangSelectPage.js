@@ -1,10 +1,10 @@
 import React from "react";
 function LangSelectPage() {
-    return(
-        <div>
-            <p>LangSelectPage</p>
-        </div>
-    )
+  return (
+    <div>
+      <p>git test1</p>
+    </div>
+  );
 }
 
 export default LangSelectPage;
