@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useCallback, useEffect, useRef} from 'react';
 
 import "../../styles/TypingCompleteModal.css"
 
@@ -6,17 +6,17 @@ function TypingCompleteModal({ time, speed, onClose, moveHome, moveCodeList}) {
     const modalContentRef = useRef(null);
 
     // ESC 키 이벤트 핸들러
-    const handleKeyDown = (event) => {
+    const handleKeyDown = useCallback((event) => {
         if (event.keyCode === 27) {
             onClose();
         }
-    };
+    }, [onClose]);
 
-    const handleClickOutside = (event) => {
+    const handleClickOutside = useCallback((event) => {
         if (modalContentRef.current && !modalContentRef.current.contains(event.target)) {
             onClose();
         }
-    };
+    }, [onClose]);
 
     useEffect(() => {
         document.addEventListener('keydown', handleKeyDown);
@@ -26,7 +26,7 @@ function TypingCompleteModal({ time, speed, onClose, moveHome, moveCodeList}) {
             document.removeEventListener('keydown', handleKeyDown);
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [onClose]);
+    }, [handleClickOutside, handleKeyDown, onClose]);
 
     function formatDate(timestamp) {
         const date = new Date(timestamp);
