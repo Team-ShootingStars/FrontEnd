@@ -9,6 +9,7 @@ import "../styles/TypingPage.css"
 import axios from "axios";
 import {useParams, useNavigate} from "react-router-dom";
 import TypingCompleteModal from "../components/modal/TypingCompleteModal";
+import Loading from "../components/Loading";
 
 function TypingPage() {
     const [LONG_TEXTS, setLONG_TEXTS] = useState(['']);
@@ -31,17 +32,29 @@ function TypingPage() {
     const params = useParams();
     const navigate = useNavigate();
 
+    const [isLoading, setIsLoading] = useState(true);
+
+    async function fetchData() {
+        setIsLoading(true); // 데이터 불러오기 시작
+        try {
+            const res = await axios('/api/typingText/' + params.textId);
+            if (res.status === 200) {
+                setLONG_TEXTS(res.data);
+                setTotalIndex(res.data.length);
+            }
+        } catch (error) {
+            navigate("/NotFound");
+        } finally {
+            setIsLoading(false); // 데이터 불러오기 완료
+        }
+    }
+
     useEffect(() => {
-        axios('/typingText/' + params.textId)
-            .then(res => {
-                if (res.status === 200) {
-                    setLONG_TEXTS(res.data);
-                    setTotalIndex(res.data.length)
-                }
-            })
-            .catch(() => {
-                navigate("/");
-            });
+        if (params.textId === null || isNaN(params.textId)) {
+            navigate("/NotFound");
+        } else {
+            fetchData();
+        }
     }, [navigate, params.codeLang, params.textId]);
 
     useEffect(() => {
@@ -180,6 +193,12 @@ function TypingPage() {
         handleCloseTypingCompleteModal()
         navigate("/" + params.codeLang);
     };
+
+    if (isLoading) {
+        return (
+            <Loading/>
+        );
+    }
 
     return (
         <div>
