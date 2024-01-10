@@ -1,4 +1,4 @@
-.modal {
+.complete-modal {
     position: fixed;
     top: 0;
     left: 0;
@@ -12,7 +12,7 @@
     z-index: 1000;
 }
 
-.modal-content {
+.complete-modal-content {
     justify-content: space-between;
     background-color: #1e1e1e;
     border-radius: 12px;
@@ -22,23 +22,23 @@
     width: 280px;
 }
 
-.modal-title {
+.complete-modal-title {
     display: flex;
     justify-content: center;
 }
 
-.modal-content-infos {
+.complete-modal-content-infos {
     margin-top: 50px;
 }
 
-.modal-date-now {
+.complete-modal-date-now {
     font-size: 13px;
     font-weight: bold;
     display: flex;
     justify-content: flex-end;
 }
 
-.modal-content-time, .modal-content-speed {
+.complete-modal-content-time, .complete-modal-content-speed {
     background-color: #2e2e2e;
     display: flex;
     justify-content: space-between;
@@ -47,39 +47,39 @@
     border-top: 2px solid white;
 }
 
-.modal-content-speed {
+.complete-modal-content-speed {
     border-bottom: 2px solid white;
 }
 
-.time-title, .speed-title {
+.complete-time-title, .complete-speed-title {
     font-size: 13px;
 }
-.time-num, .speed-num {
+.complete-time-num, .complete-speed-num {
     font-size: 25px;
     font-weight: bold;
 }
 
-.modal-content-buttons {
+.complete-modal-content-buttons {
     margin-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.modal-content button {
+.complete-modal-content button {
     width: 105px;
     background: white;
     font-size: 13px;
     font-weight: bold;
     padding: 10px 20px;
     margin-right: 10px;
-    border: none;
+    border: white solid 1px;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.modal-content button:hover {
+.complete-modal-content button:hover {
     border: white solid 1px;
     background-color: #2a2a2a;
     color: white;

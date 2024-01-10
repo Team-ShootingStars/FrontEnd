@@ -13,7 +13,7 @@
     z-index: 9999;
 }
 
-.spinner {
+.loading-spinner {
     border: 8px solid rgba(255, 255, 255, 0.3);
     border-radius: 50%;
     border-top: 8px solid #ffffff;
@@ -27,7 +27,7 @@
     100% { transform: rotate(360deg); }
 }
 
-.loading-container p {
+.loading-p {
     margin-top: 20px;
     color: #ffffff;
 }

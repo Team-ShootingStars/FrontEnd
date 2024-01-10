@@ -1,0 +1,49 @@
+.langSelectPage-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 130px);
+}
+
+.lang-top-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.lang-top-button-container button,
+.lang-bottom-button-container button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: white;
+  color: black;
+}
+
+.lang-top-button-container button.selected {
+  background-color: #415a77;
+  color: #e0e1dd; /* 선택된 버튼 텍스트의 색상을 변경할 수도 있습니다. */
+}
+
+.lang-top-button-container button:hover {
+  transform: scale(1.05);
+}
+
+.lang-bottom-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.lang-bottom-button-container button {
+  color: #333
+}
+
+.lang-bottom-button-container button:hover {
+  color: blue;
+}

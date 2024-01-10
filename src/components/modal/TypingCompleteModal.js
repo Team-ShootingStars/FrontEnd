@@ -43,21 +43,21 @@ function TypingCompleteModal({ time, speed, onClose, moveHome, moveCodeList}) {
     }
 
     return (
-        <div className="modal">
-            <div ref={modalContentRef} className="modal-content">
-                <h2 className={"modal-title"}>🎉 Complete Typing 🎉</h2>
-                <div className={"modal-content-infos"}>
-                    <p className={"modal-date-now"}>{formatDate(Date.now())}</p>
-                    <p className={"modal-content-time"}>
-                        <span className={"time-title"}>Time</span>
-                        <span className={"time-num"}>{time}</span>
+        <div className="complete-modal">
+            <div ref={modalContentRef} className="complete-modal-content">
+                <h2 className={"complete-modal-title"}>🎉 Complete Typing 🎉</h2>
+                <div className={"complete-modal-content-infos"}>
+                    <p className={"complete-modal-date-now"}>{formatDate(Date.now())}</p>
+                    <p className={"complete-modal-content-time"}>
+                        <span className={"complete-time-title"}>Time</span>
+                        <span className={"complete-time-num"}>{time}</span>
                     </p>
-                    <p className={"modal-content-speed"}>
-                        <span className={"speed-title"}>Avg Speed</span>
-                        <span className={"speed-num"}>{speed}</span>
+                    <p className={"complete-modal-content-speed"}>
+                        <span className={"complete-speed-title"}>Avg Speed</span>
+                        <span className={"complete-speed-num"}>{speed}</span>
                     </p>
                 </div>
-                <div className={"modal-content-buttons"}>
+                <div className={"complete-modal-content-buttons"}>
                     <button onClick={moveHome}>Home</button>
                     <button onClick={moveCodeList}>Code List</button>
                 </div>

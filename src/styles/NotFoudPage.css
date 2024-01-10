@@ -1,4 +1,4 @@
-.container {
+.error404Page-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,11 +8,12 @@
     padding: 20px;
 }
 
-.error-img {
+.error404-img {
     width: 400px;
+    user-select: none;
 }
 
-h1 {
+.error404Page-h1 {
     display: block;
     width: 400px;
     height: 65px;
@@ -26,12 +27,12 @@ h1 {
     margin: 0 0 10px 0;
 }
 
-p {
+.error404Page-p {
     font-size: 15px;
     color: #ccc;  /* 부연 설명 텍스트의 색상을 조금 더 연한 회색으로 설정 */
 }
 
-.cursor-animation {
+.error404Page-cursor-animation {
     display: inline-block;
     vertical-align: top;
     width: 2px;
