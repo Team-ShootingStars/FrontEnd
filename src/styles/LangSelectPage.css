@@ -1,0 +1,70 @@
+/* 공통 스타일 */
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: white;
+  color: black;
+}
+
+button.selected {
+  background-color: #415a77;
+  color: #e0e1dd; /* 선택된 버튼 텍스트의 색상을 변경할 수도 있습니다. */
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* LangSelectButton 스타일 */
+.langs-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.langs-1st button,
+.langs-2nd button {
+  color: #333; /* 다크 텍스트 */
+}
+
+/* RandomDescBtn과 SelectDescBtn 스타일 */
+#randomdesc-button {
+  color: #333;
+}
+
+#randomdesc-button:hover {
+  color: blue;
+}
+
+#selectdesc-button {
+  color: #333;
+}
+
+#selectdesc-button:hover {
+  color: blue;
+}
+
+/* main-container 스타일 */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 130px);
+}
+
+.langs-btn,
+.buttons-container {
+  margin-bottom: 20px;
+}
+
+.btn-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
