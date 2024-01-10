@@ -10,6 +10,7 @@
 
 .error404-img {
     width: 400px;
+    user-select: none;
 }
 
 .error404Page-h1 {

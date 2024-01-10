@@ -24,6 +24,18 @@ function NotFoundPage() {
         return () => clearInterval(interval);
     }, []);
 
+    const handleContextMenu = (e) => {
+        e.preventDefault();
+    };
+
+    const handleMouseDown = (e) => {
+        e.preventDefault();
+    };
+
+    const handleDragStart = (e) => {
+        e.preventDefault();
+    };
+
     return (
         <div>
             <Header />
@@ -33,6 +45,9 @@ function NotFoundPage() {
                         src={errorLogo}
                         className={"error404-img"}
                         alt={"404"}
+                        onContextMenu={handleContextMenu}
+                        onMouseDown={handleMouseDown}
+                        onDragStart={handleDragStart}
                     />
                     <h1 className={"error404Page-h1"}>{typedText}<span className="error404Page-cursor-animation"></span></h1>
                     <p className={"error404Page-p"}>죄송합니다. 요청하신 페이지를 찾을 수 없습니다.</p>
