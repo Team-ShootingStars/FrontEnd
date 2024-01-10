@@ -15,51 +15,50 @@ function LangSelectPage() {
   };
 
   const handleSelectDescBtnClick = () => {
-    // 선택한 언어가 없다면 페이지를 다시 로드
-    if (!selectedLang) {
-      window.location.reload();
+    if (selectedLang) {
+      navigate(`/${selectedLang}/list`);
     } else {
-      // 선택한 언어를 이용하여 새로운 경로를 생성하고 이동합니다.
-      const newPath = `/${selectedLang}/list`;
-      navigate(newPath);
+      // selectedLang이 falsy 값일 경우 (즉, 선택되지 않았을 경우) 경고 메시지 표시
+      alert("언어를 선택해주세요.");
     }
+    // selectedLang이 falsy 값이면 여기까지 도달하고 함수가 종료
   };
 
   return (
     <div>
       <Header />
-      <div class={"main-container"}>
-        <div class="langs-btn">
-          <div class="langs-1st">
+      <div className={"main-container"}>
+        <div className="langs-btn">
+          <div className="langs-1st">
             <button
               onClick={() => handleLangButtonClick("JAVA")}
-              class={selectedLang === "JAVA" ? "selected" : ""}
+              className={selectedLang === "JAVA" ? "selected" : ""}
             >
               JAVA
             </button>
             <button
-              onClick={() => handleLangButtonClick("javascript")}
-              class={selectedLang === "javascript" ? "selected" : ""}
+              onClick={() => handleLangButtonClick("JS")}
+              className={selectedLang === "JS" ? "selected" : ""}
             >
               JavaScript
             </button>
           </div>
-          <div class="langs-2nd">
+          <div className="langs-2nd">
             <button
-              onClick={() => handleLangButtonClick("cpp")}
-              class={selectedLang === "cpp" ? "selected" : ""}
+              onClick={() => handleLangButtonClick("CPP")}
+              className={selectedLang === "CPP" ? "selected" : ""}
             >
               C++
             </button>
             <button
-              onClick={() => handleLangButtonClick("python")}
-              class={selectedLang === "python" ? "selected" : ""}
+              onClick={() => handleLangButtonClick("PYTHON")}
+              className={selectedLang === "PYTHON" ? "selected" : ""}
             >
               Python
             </button>
           </div>
         </div>
-        <div class={"btn-container"}>
+        <div className={"btn-container"}>
           <RandomDescBtn selectedLang={selectedLang} />
           <button id="selectdesc-button" onClick={handleSelectDescBtnClick}>
             지문 선택

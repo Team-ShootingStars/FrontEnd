@@ -55,7 +55,7 @@ button:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 40vh; /* 화면 전체 높이 */
+  height: calc(100vh - 130px);
 }
 
 .langs-btn,
