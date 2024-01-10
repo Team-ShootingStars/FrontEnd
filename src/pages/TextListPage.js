@@ -1,12 +1,24 @@
 import React from "react";
-import {useParams} from "react-router-dom";
-function TextListPage() {
-    const params = useParams()
+import Header from "../components/Header";
+import LangSection from "../components/LangSection";
+import ListSection from "../components/ListSection";
+import PageSection from "../components/PageSection";
+import Footer from "../components/Footer";
 
+import "../styles/TextListPage.css"
+import {useParams} from "react-router-dom";
+
+function TextListPage() {
+    
     return(
         <div>
-            <p>TextListPage</p>
-            <p>Lang = {params.codeLang}</p>
+            <Header/>
+            <div className={"main-container"}>
+                <LangSection />
+                <ListSection />
+                <PageSection />
+            </div>
+            <Footer/>
         </div>
     )
 }
