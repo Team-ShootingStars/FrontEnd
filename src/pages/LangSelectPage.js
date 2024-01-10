@@ -25,48 +25,48 @@ function LangSelectPage() {
   };
 
   return (
-    <div>
-      <Header />
-      <div className={"main-container"}>
-        <div className="langs-btn">
-          <div className="langs-1st">
-            <button
-              onClick={() => handleLangButtonClick("JAVA")}
-              className={selectedLang === "JAVA" ? "selected" : ""}
-            >
-              JAVA
-            </button>
-            <button
-              onClick={() => handleLangButtonClick("JS")}
-              className={selectedLang === "JS" ? "selected" : ""}
-            >
-              JavaScript
-            </button>
+      <div>
+        <Header/>
+        <div className={"langSelectPage-main-container"}>
+          <div className="lang-top-button-container">
+            <div className="lang-button-container-1st">
+              <button
+                  onClick={() => handleLangButtonClick("JAVA")}
+                  className={selectedLang === "JAVA" ? "JAVA selected" : "JAVA"}
+              >
+                JAVA
+              </button>
+              <button
+                  onClick={() => handleLangButtonClick("JS")}
+                  className={selectedLang === "JS" ? "JS selected" : "JS"}
+              >
+                JavaScript
+              </button>
+            </div>
+            <div className="lang-button-container-2st">
+              <button
+                  onClick={() => handleLangButtonClick("CPP")}
+                  className={selectedLang === "CPP" ? "CPP selected" : "CPP"}
+              >
+                C++
+              </button>
+              <button
+                  onClick={() => handleLangButtonClick("PYTHON")}
+                  className={selectedLang === "PYTHON" ? "PYTHON selected" : "PYTHON"}
+              >
+                Python
+              </button>
+            </div>
           </div>
-          <div className="langs-2nd">
-            <button
-              onClick={() => handleLangButtonClick("CPP")}
-              className={selectedLang === "CPP" ? "selected" : ""}
-            >
-              C++
-            </button>
-            <button
-              onClick={() => handleLangButtonClick("PYTHON")}
-              className={selectedLang === "PYTHON" ? "selected" : ""}
-            >
-              Python
+          <div className={"lang-bottom-button-container"}>
+            <RandomDescBtn selectedLang={selectedLang}/>
+            <button className={"lang-select-list-button"} onClick={handleSelectDescBtnClick}>
+              지문 선택
             </button>
           </div>
         </div>
-        <div className={"btn-container"}>
-          <RandomDescBtn selectedLang={selectedLang} />
-          <button id="selectdesc-button" onClick={handleSelectDescBtnClick}>
-            지문 선택
-          </button>
-        </div>
+        <Footer/>
       </div>
-      <Footer />
-    </div>
   );
 }
 

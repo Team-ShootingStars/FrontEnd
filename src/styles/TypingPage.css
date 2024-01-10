@@ -1,4 +1,4 @@
-.main-container {
+.typingPage-main-container {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -6,7 +6,7 @@
     height: calc(100vh - 130px);
 }
 
-.long-text-container {
+.typingPage-long-text-container {
     height: 100%;
     overflow-y: auto;
     background-color: #1e1e1e;
@@ -17,47 +17,47 @@
 }
 
 
-.long-text-container::-webkit-scrollbar {
+.typingPage-long-text-container::-webkit-scrollbar {
     width: 8px;
 }
 
-.long-text-container::-webkit-scrollbar-thumb {
+.typingPage-long-text-container::-webkit-scrollbar-thumb {
     background-color: #555;
     border-radius: 4px;
 }
 
-.long-text-container::-webkit-scrollbar-thumb:hover {
+.typingPage-long-text-container::-webkit-scrollbar-thumb:hover {
     background-color: #888;
 }
 
-.long-text-container p {
+.typingPage-long-text-container p {
     margin: 12px 0;
     padding: 10px;
     border-radius: 6px;
     transition: background-color 0.3s ease;
 }
 
-.long-text-container p:hover {
+.typingPage-long-text-container p:hover {
     background-color: #2a2a2a;
 }
 
-.info-container {
+.typingPage-info-container {
     display: flex;
     align-items: center;
     padding: 10px 0;
 }
 
-.info-container p {
+.typingPage-info-container p {
     margin: 10px;
 }
 
-.text-input-container {
+.typingPage-text-input-container {
     border: 2px solid #ffffff;
     border-radius: 10px;
     padding: 10px;
 }
 
-.current-text {
+.typingPage-current-text {
     margin: 0;
     display: block;
     width: 100%;
@@ -68,7 +68,7 @@
     box-sizing: border-box;
 }
 
-.text-input {
+.typingPage-text-input {
     display: block;
     width: 100%;
     padding: 14px 12px;
@@ -81,7 +81,7 @@
     transition: border-color 0.3s ease;
 }
 
-.text-input:focus {
+.typingPage-text-input:focus {
     outline: none;
     border-color: #007bff;
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);

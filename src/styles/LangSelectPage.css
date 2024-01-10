@@ -1,5 +1,20 @@
-/* 공통 스타일 */
-button {
+.langSelectPage-main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 130px);
+}
+
+.lang-top-button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.lang-top-button-container button,
+.lang-bottom-button-container button {
   padding: 10px 20px;
   margin: 10px;
   border: none;
@@ -11,60 +26,24 @@ button {
   color: black;
 }
 
-button.selected {
+.lang-top-button-container button.selected {
   background-color: #415a77;
   color: #e0e1dd; /* 선택된 버튼 텍스트의 색상을 변경할 수도 있습니다. */
 }
 
-button:hover {
+.lang-top-button-container button:hover {
   transform: scale(1.05);
 }
 
-/* LangSelectButton 스타일 */
-.langs-btn {
+.lang-bottom-button-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.langs-1st button,
-.langs-2nd button {
-  color: #333; /* 다크 텍스트 */
-}
-
-/* RandomDescBtn과 SelectDescBtn 스타일 */
-#randomdesc-button {
-  color: #333;
-}
-
-#randomdesc-button:hover {
-  color: blue;
-}
-
-#selectdesc-button {
-  color: #333;
-}
-
-#selectdesc-button:hover {
-  color: blue;
-}
-
-/* main-container 스타일 */
-.main-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: calc(100vh - 130px);
 }
 
-.langs-btn,
-.buttons-container {
-  margin-bottom: 20px;
+.lang-bottom-button-container button {
+  color: #333
 }
 
-.btn-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+.lang-bottom-button-container button:hover {
+  color: blue;
 }
