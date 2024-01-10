@@ -2,7 +2,7 @@ import React from "react";
 
 function TypingMainText({longText, currentIndex}) {
     return (
-        <div className={"long-text-container"}>
+        <div className={"typingPage-long-text-container"}>
             {longText.map((text, index) => (
                 <p
                     id={`line-${index}`}

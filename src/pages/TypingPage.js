@@ -106,10 +106,14 @@ function TypingPage() {
         return () => clearInterval(timer);
     }, [typedChars, startTime]);
 
-    const scrollMove = useCallback(() => {
+    const scrollMove = useCallback((type) => {
         const currentLineElement = document.getElementById(`line-${currentIndex}`);
         if (currentLineElement) {
-            currentLineElement.scrollIntoView({behavior: "smooth", block: "center"});
+            if (type === 0) {
+                currentLineElement.scrollIntoView({behavior: "smooth", block: "center"});
+            } else {
+                currentLineElement.scrollIntoView({behavior: "auto", block: "center"});
+            }
         }
     }, [currentIndex]);
 
@@ -127,11 +131,11 @@ function TypingPage() {
         setTypedChars(e.target.value.length);
 
         setInputValue(e.target.value);
-        scrollMove();
+        scrollMove(1);
     }, [elapsedTime, startTime, scrollMove]);
 
     const handleInputFocus = useCallback(() => {
-        scrollMove();
+        scrollMove(0);
     }, [scrollMove]);
 
     const typingEnd = useCallback(() => {
@@ -203,7 +207,7 @@ function TypingPage() {
     return (
         <div>
             <Header/>
-            <div className={"main-container"}>
+            <div className={"typingPage-main-container"}>
                 <TypingMainText longText={LONG_TEXTS} currentIndex={currentIndex}/>
                 <TypingInfo
                     currentIndex={currentIndex}

@@ -36,10 +36,10 @@ function TypingInputText({text, inputValue, handleInputFocus, handleInputChange,
     }
 
     return (
-        <div className={"text-input-container"}>
-            <p className={"current-text"}>{renderHighlightedText()}</p>
+        <div className={"typingPage-text-input-container"}>
+            <p className={"typingPage-current-text"}>{renderHighlightedText()}</p>
             <input
-                className={"text-input"}
+                className={"typingPage-text-input"}
                 type="text"
                 placeholder={"Typing here..."}
                 value={inputValue}

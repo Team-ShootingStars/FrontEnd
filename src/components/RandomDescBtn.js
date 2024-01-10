@@ -30,7 +30,7 @@ function RandomDescBtn({ selectedLang }) {
 
   return (
     <div>
-      <button id="randomdesc-button" onClick={handleRandomDescBtnClick}>
+      <button className={"lang-select-random-button"} onClick={handleRandomDescBtnClick}>
         지문 랜덤 선택
       </button>
     </div>
