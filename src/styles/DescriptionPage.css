@@ -1,0 +1,32 @@
+.description-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 200px 80px 200px;
+    height: calc(80vh - 80px);
+}
+
+.description-text {
+    height: 100%;
+    overflow-y: auto;
+    background-color: #1e1e1e;
+    white-space: pre-wrap;
+    padding: 20px;
+}
+
+.description-info {
+    text-align: center;
+    border-color: white;
+    border: 1px solid white;
+    padding: 10px;
+    /* opacity: 0.5; */
+}
+
+.start-btn {
+    margin: auto;
+    width: 180px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: #3a8ff0;
+}
