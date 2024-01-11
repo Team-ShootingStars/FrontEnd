@@ -34,22 +34,22 @@ function TypingPage() {
 
     const [isLoading, setIsLoading] = useState(true);
 
-    async function fetchData() {
-        setIsLoading(true); // 데이터 불러오기 시작
-        try {
-            const res = await axios('/api/typingText/' + params.textId);
-            if (res.status === 200) {
-                setLONG_TEXTS(res.data);
-                setTotalIndex(res.data.length);
-            }
-        } catch (error) {
-            navigate("/NotFound");
-        } finally {
-            setIsLoading(false); // 데이터 불러오기 완료
-        }
-    }
-
     useEffect(() => {
+        const fetchData = async () => {
+            setIsLoading(true); // 데이터 불러오기 시작
+            try {
+                const res = await axios.get('/api/typingText/' + params.textId);
+                if (res.status === 200) {
+                    setLONG_TEXTS(res.data);
+                    setTotalIndex(res.data.length);
+                }
+            } catch (error) {
+                navigate("/NotFound");
+            } finally {
+                setIsLoading(false); // 데이터 불러오기 완료
+            }
+        }
+
         if (params.textId === null || isNaN(params.textId)) {
             navigate("/NotFound");
         } else {
@@ -117,6 +117,10 @@ function TypingPage() {
         }
     }, [currentIndex]);
 
+    useEffect(() => {
+        scrollMove(0);
+    }, [currentIndex, scrollMove])
+
     const handleInputChange = useCallback((e) => {
         if (elapsedTime === null) {
             setElapsedTime(0);
@@ -168,9 +172,14 @@ function TypingPage() {
             setStartTime(null);
             setTypedChars(0);
 
-            scrollMove();
+        } else if (inputValue !== '' && inputValue !== LONG_TEXTS[currentIndex].trim()) {
+            const currentTextElement = document.querySelector('.typingPage-current-text');
+            currentTextElement.classList.add('shake');
+            setTimeout(() => {
+                currentTextElement.classList.remove('shake');
+            }, 500);
         }
-    }, [LONG_TEXTS, currentIndex, inputValue, scrollMove, totalIndex, totalTypingSpeed, typingEnd, typingSpeed]);
+    }, [LONG_TEXTS, currentIndex, inputValue, totalIndex, totalTypingSpeed, typingEnd, typingSpeed]);
 
     const formatTime = (seconds) => {
         const hours = Math.floor(seconds / 3600);
