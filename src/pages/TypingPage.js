@@ -57,23 +57,6 @@ function TypingPage() {
         }
     }, [navigate, params.codeLang, params.textId]);
 
-    useEffect(() => {
-        const preventPaste = (e) => {
-            e.preventDefault();
-        };
-
-        const inputs = document.querySelectorAll('input');
-        inputs.forEach(input => {
-            input.addEventListener('paste', preventPaste);
-        });
-
-        return () => {
-            inputs.forEach(input => {
-                input.removeEventListener('paste', preventPaste);
-            });
-        };
-    }, []);
-
     // elapsedTime 을 업데이트하는 useEffect
     useEffect(() => {
         const elapsedTimer = setInterval(() => {

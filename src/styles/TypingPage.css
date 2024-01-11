@@ -1,4 +1,5 @@
 .typingPage-main-container {
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -11,9 +12,33 @@
     overflow-y: auto;
     background-color: #1e1e1e;
     border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.05);
+    box-shadow: 0 6px 10px rgba(255, 255, 255, 0.05);
     white-space: pre-wrap;
     padding: 20px;
+}
+
+.typingPage-current-text {
+    word-break: break-word;
+}
+
+.typingPage-current-text.before,
+.typingPage-current-text.after{
+    border: none;
+    padding: 5px;
+}
+
+.typingPage-current-text.before {
+    color: gray;
+}
+
+.typingPage-current-text.current {
+    color: gray;
+    border: 2px solid #9400FF;
+    padding: 5px;
+}
+
+.typingPage-current-text.after{
+    color: white;
 }
 
 
@@ -34,39 +59,74 @@
     margin: 12px 0;
     padding: 10px;
     border-radius: 6px;
-    transition: background-color 0.3s ease;
+    /*transition: background-color 0.3s ease;*/
 }
 
-.typingPage-long-text-container p:hover {
-    background-color: #2a2a2a;
-}
+/*.typingPage-long-text-container p:hover {*/
+/*    background-color: #2a2a2a;*/
+/*}*/
 
 .typingPage-info-container {
     display: flex;
     align-items: center;
-    padding: 10px 0;
+    margin: 20px 5px 15px 5px;
+    padding: 10px 3px;
+    position: relative;
 }
 
-.typingPage-info-container p {
-    margin: 10px;
+.typingPage-info-container p,
+.progress-bar-container {
+    position: absolute;
 }
 
-.typingPage-text-input-container {
-    border: 2px solid #ffffff;
-    border-radius: 10px;
-    padding: 10px;
+.typingPage-info-container .time {
+    left: 95px;
 }
 
-.typingPage-current-text {
-    margin: 0;
+.typingPage-info-container .offer {
+    left: 215px;
+}
+
+.progress-bar-container {
+    height: 5px;
+    background-color: #2e2e2e;
+    border-radius: 12px;
+    left: 410px;
+    bottom: 4px;
+    width: calc(100% - 415px);
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 12px;
+    background-color: #5cd15c;
+    transition: width 0.3s ease;
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: -5px;
+}
+
+.image-overlay img {
+    width: 30px;
+    object-fit: contain;
+    user-select: none;
+}
+
+
+.typingPage-input-current-text {
+    margin: 0 0 2px;
     display: block;
-    width: 100%;
+    max-width: 100%;
     font-size: 18px;
     padding: 14px 12px;
     border: 2px solid #333333;
-    border-radius: 8px;
+    border-radius: 12px;
     box-sizing: border-box;
+    word-break: break-word;
 }
+
 
 .typingPage-text-input {
     display: block;
@@ -74,7 +134,7 @@
     padding: 14px 12px;
     font-size: 18px;
     border: 2px solid #333333;
-    border-radius: 8px;
+    border-radius: 12px;
     box-sizing: border-box;
     background-color: #1e1e1e;
     color: white;
@@ -83,8 +143,8 @@
 
 .typingPage-text-input:focus {
     outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    border-bottom: 2px solid #9400FF;
+    box-shadow: 0 8px 16px rgba(148, 0, 255, 0.2);
 }
 
 .red-text {
