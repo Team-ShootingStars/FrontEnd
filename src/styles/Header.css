@@ -12,8 +12,17 @@
 }
 
 .headerHome {
-  box-shadow: 0 5px 60px rgba(148, 0, 255, 0.17);
-  background: linear-gradient(transparent, rgb(18, 18, 18), rgba(148, 0, 255, 0.1));
+  background: linear-gradient( #121212, rgba(18, 18, 18, 1), rgba(148, 0, 255, 0.1));
+  animation: shadowIn 1s ease forwards;
+}
+
+@keyframes shadowIn {
+  from {
+    box-shadow: 0 0 0 rgba(148, 0, 255, 0);
+  }
+  to {
+    box-shadow: 0 5px 60px rgba(148, 0, 255, 0.17);
+  }
 }
 
 .header-link {
