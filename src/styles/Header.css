@@ -1,4 +1,5 @@
-.header {
+.header,
+.headerHome {
   display: flex;
   position: fixed;
   width: 100%;
@@ -7,8 +8,12 @@
   height: 60px;
   background-color: #1e1e1e;
   padding: 0 25px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1;
+}
+
+.headerHome {
+  box-shadow: 0 10px 80px rgba(148, 0, 255, 0.2);
+  background: linear-gradient(to bottom, rgba(18, 18, 18, 0.2), rgba(110, 0, 255, 0.1));
 }
 
 .header-link {
