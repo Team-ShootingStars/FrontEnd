@@ -71,6 +71,7 @@ function TypingInputText({text, inputValue, handleInputFocus, handleInputChange,
                 onKeyDown={(e) => {
                     if (e.key === 'Enter') handleEnterPress();
                 }}
+                autoComplete={"off"}
                 ref={inputRef}
             />
         </div>
