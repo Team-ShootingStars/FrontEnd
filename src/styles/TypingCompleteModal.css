@@ -73,15 +73,19 @@
     font-size: 13px;
     font-weight: bold;
     padding: 10px 20px;
-    margin-right: 10px;
+    margin-top: 10px;
     border: #2e2e2e solid 1px;
     border-radius: 8px;
     cursor: pointer;
-    /*transition: background-color 0.3s ease;*/
+    transition: all 0.3s ease;
+}
+
+.complete-modal-home-button {
+    margin-right: 10px;
 }
 
 .complete-modal-content button:hover {
     border: #9400FF solid 1px;
     background-color: #9400FF;
-    color: white;
+    transform: scale(1.05);
 }
