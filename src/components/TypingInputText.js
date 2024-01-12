@@ -1,14 +1,12 @@
-import React, {useCallback, useEffect, useRef} from "react";
+import React, {useCallback, useEffect} from "react";
 
-function TypingInputText({text, inputValue, handleInputFocus, handleInputChange, handleEnterPress, isModalOpen}) {
-
-    const inputRef = useRef(null);
+function TypingInputText({text, inputValue, handleInputFocus, handleInputChange, handleEnterPress, isModalOpen, inputRef, currentRef}) {
 
     useEffect(() => {
         if (inputRef.current) {
             inputRef.current.disabled = isModalOpen;
         }
-    }, [isModalOpen]);
+    }, [inputRef, isModalOpen]);
 
     const handlePaste = useCallback((e) => {
         e.preventDefault();
@@ -29,7 +27,7 @@ function TypingInputText({text, inputValue, handleInputFocus, handleInputChange,
                 instance.removeEventListener("paste", handlePasteEvent);
             }
         };
-    }, [handlePaste]);
+    }, [handlePaste, inputRef]);
 
     const renderHighlightedText = () => {
         let inputChars = Array.from(inputValue);
@@ -59,7 +57,10 @@ function TypingInputText({text, inputValue, handleInputFocus, handleInputChange,
 
     return (
         <div className={"typingPage-text-input-container"}>
-            <p className={"typingPage-input-current-text"}>{renderHighlightedText()}</p>
+            <p
+                ref={currentRef}
+                className={"typingPage-input-current-text"}>{renderHighlightedText()}
+            </p>
             <input
                 className={"typingPage-text-input"}
                 id={"typingPage-text-input"}

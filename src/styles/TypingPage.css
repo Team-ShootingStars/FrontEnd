@@ -155,7 +155,7 @@
     color: #5cd15c;
 }
 
-.typingPage-current-text.shake{
+.typingPage-input-current-text.shake{
     animation: shake 0.5s ease-in-out;
 }
 
