@@ -53,6 +53,7 @@
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;
+  user-select: none;
 }
 
 

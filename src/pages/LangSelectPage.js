@@ -29,12 +29,29 @@ function LangSelectPage() {
     // selectedLang이 falsy 값이면 여기까지 도달하고 함수가 종료
   };
 
+  const handleContextMenu = (e) => {
+    e.preventDefault();
+  };
+
+  const handleMouseDown = (e) => {
+    e.preventDefault();
+  };
+
+  const handleDragStart = (e) => {
+    e.preventDefault();
+  };
+
   return (
       <div>
         <Header/>
         <div className={"langSelectPage-main-container"}>
           <h1 className={"select-stadium"}>Select Your Stadium</h1>
-          <div className="lang-top-button-container">
+          <div
+              className="lang-top-button-container"
+              onContextMenu={handleContextMenu}
+              onMouseDown={handleMouseDown}
+              onDragStart={handleDragStart}
+          >
             <div className="lang-button-container-1st">
               <img src={javaIco}
                    alt={"자바"}
