@@ -7,11 +7,12 @@ function TypingMainText({longText, currentIndex}) {
                 <p
                     id={`line-${index}`}
                     key={index}
-                    style={{
-                        color: index < currentIndex ? 'white' : 'gray',
-                        border: index === currentIndex ? '2px solid #6A0DAD' : 'none',
-                        padding: '5px',
-                    }}
+                    className={
+                        index < currentIndex
+                            ? "typingPage-current-text after"
+                            : index === currentIndex
+                                ? "typingPage-current-text current"
+                                : "typingPage-current-text before" }
                 >
                     {text}
                 </p>
