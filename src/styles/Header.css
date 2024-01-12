@@ -12,7 +12,7 @@
 }
 
 .headerHome {
-  background: linear-gradient( #121212, rgba(18, 18, 18, 1), rgba(148, 0, 255, 0.1));
+  background: linear-gradient( #121212, rgba(18, 18, 18, 1), rgba(148, 0, 255, 0.06));
   animation: shadowIn 1s ease forwards;
 }
 
@@ -21,7 +21,7 @@
     box-shadow: 0 0 0 rgba(148, 0, 255, 0);
   }
   to {
-    box-shadow: 0 5px 60px rgba(148, 0, 255, 0.17);
+    box-shadow: 0 10px 80px rgba(148, 0, 255, 0.15);
   }
 }
 
