@@ -7,7 +7,7 @@ function Header() {
 
     return (
         <div
-            className={location.pathname === "/" ? "headerHome" : "header"}
+            className={location.pathname.includes("/typing") ? "header" : "headerHome"}
         >
             <a href="/" className="header-link">Code Sprinter</a>
         </div>
