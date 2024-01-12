@@ -157,8 +157,6 @@ function TypingPage() {
                 }
                 setEmptyLineCount(emptyLine);
                 setCurrentIndex(nextIndex);
-                console.log(emptyLineCount);
-
             }
             setInputValue('');
             setStartTime(null);
@@ -218,6 +216,7 @@ function TypingPage() {
                     totalIndex={totalIndex}
                     typingSpeed={typingSpeed}
                     elapsedTime={formatTime(elapsedTime)}
+                    isModalOpen={showCompleteModal}
                 />
                 <TypingInputText
                     text={LONG_TEXTS[currentIndex].trim()}

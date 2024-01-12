@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from "react";
 import runner from "../assets/runner.gif";
 
-function TypingInfo({ totalIndex, currentIndex, elapsedTime, typingSpeed }) {
+function TypingInfo({ totalIndex, currentIndex, elapsedTime, typingSpeed, isModalOpen }) {
     const [progressWidth, setProgressWidth] = useState(0);
 
     useEffect(() => {
-        setProgressWidth((currentIndex / totalIndex) * 100);
-    }, [currentIndex, totalIndex]);
+        if (isModalOpen) {
+            setProgressWidth( 100);
+        } else {
+            setProgressWidth((currentIndex / totalIndex) * 100);
+        }
+    }, [currentIndex, isModalOpen, totalIndex]);
 
     const imagePosition = {
         left: `calc(${progressWidth}% - 18px)`,
