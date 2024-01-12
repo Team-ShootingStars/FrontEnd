@@ -17,12 +17,10 @@
   flex-direction: column;
   align-items: center;
   margin-bottom: 20px;
-  opacity: 0;
-  transform: translateY(-20px) scale(0.8);
-  animation: scaleIn 1s forwards, bounce 1s 0.5s infinite alternate;
+  animation: scaleIn2 1s forwards, bounce 1s 0.5s infinite alternate;
 }
 
-@keyframes scaleIn {
+@keyframes scaleIn2 {
   from {
     opacity: 0;
     transform: translateY(-20px) scale(0.8);
