@@ -1,4 +1,6 @@
 import React from "react";
+
+import "../styles/TextListPage.css"
 import {useParams} from "react-router-dom";
 
 function LangSection({}) {

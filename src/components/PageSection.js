@@ -1,5 +1,7 @@
 import React from "react";
 
+import "../styles/TextListPage.css"
+
 function PageSection({ currentPage, totalPages, onPageChange }) {
     const pageNumbers = [];
 
