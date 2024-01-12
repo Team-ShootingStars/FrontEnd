@@ -1,13 +1,33 @@
-import React, {useEffect} from "react";
+import React, {useCallback, useEffect} from "react";
 
-function TypingInputText({text, inputValue, handleInputFocus, handleInputChange, handleEnterPress, isModalOpen}) {
+function TypingInputText({text, inputValue, handleInputFocus, handleInputChange, handleEnterPress, isModalOpen, inputRef, currentRef}) {
 
     useEffect(() => {
-        const inputElement = document.querySelector('input');
-        if (inputElement) {
-            inputElement.disabled = isModalOpen;
+        if (inputRef.current) {
+            inputRef.current.disabled = isModalOpen;
         }
-    }, [isModalOpen]);
+    }, [inputRef, isModalOpen]);
+
+    const handlePaste = useCallback((e) => {
+        e.preventDefault();
+        // 붙여넣기 시도가 있으면 입력을 취소합니다.
+    }, []);
+
+    useEffect(() => {
+        const handlePasteEvent = (e) => handlePaste(e);
+
+        const instance = inputRef.current
+
+        if (instance) {
+            instance.addEventListener("paste", handlePasteEvent);
+        }
+
+        return () => {
+            if (instance) {
+                instance.removeEventListener("paste", handlePasteEvent);
+            }
+        };
+    }, [handlePaste, inputRef]);
 
     const renderHighlightedText = () => {
         let inputChars = Array.from(inputValue);
@@ -37,9 +57,13 @@ function TypingInputText({text, inputValue, handleInputFocus, handleInputChange,
 
     return (
         <div className={"typingPage-text-input-container"}>
-            <p className={"typingPage-current-text"}>{renderHighlightedText()}</p>
+            <p
+                ref={currentRef}
+                className={"typingPage-input-current-text"}>{renderHighlightedText()}
+            </p>
             <input
                 className={"typingPage-text-input"}
+                id={"typingPage-text-input"}
                 type="text"
                 placeholder={"Typing here..."}
                 value={inputValue}
@@ -48,6 +72,8 @@ function TypingInputText({text, inputValue, handleInputFocus, handleInputChange,
                 onKeyDown={(e) => {
                     if (e.key === 'Enter') handleEnterPress();
                 }}
+                autoComplete={"off"}
+                ref={inputRef}
             />
         </div>
     );

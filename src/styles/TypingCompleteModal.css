@@ -39,7 +39,7 @@
 }
 
 .complete-modal-content-time, .complete-modal-content-speed {
-    background-color: #2e2e2e;
+    background-color: #1e1e1e;
     display: flex;
     justify-content: space-between;
     margin: 0;
@@ -68,19 +68,20 @@
 
 .complete-modal-content button {
     width: 105px;
-    background: white;
+    color: white;
+    background: #2e2e2e;
     font-size: 13px;
     font-weight: bold;
     padding: 10px 20px;
     margin-right: 10px;
-    border: white solid 1px;
+    border: #2e2e2e solid 1px;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    /*transition: background-color 0.3s ease;*/
 }
 
 .complete-modal-content button:hover {
-    border: white solid 1px;
-    background-color: #2a2a2a;
+    border: #9400FF solid 1px;
+    background-color: #9400FF;
     color: white;
 }

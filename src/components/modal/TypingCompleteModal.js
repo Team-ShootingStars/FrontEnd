@@ -53,7 +53,7 @@ function TypingCompleteModal({ time, speed, onClose, moveHome, moveCodeList}) {
                         <span className={"complete-time-num"}>{time}</span>
                     </p>
                     <p className={"complete-modal-content-speed"}>
-                        <span className={"complete-speed-title"}>Avg Speed</span>
+                        <span className={"complete-speed-title"}>Avg Pace</span>
                         <span className={"complete-speed-num"}>{speed}</span>
                     </p>
                 </div>

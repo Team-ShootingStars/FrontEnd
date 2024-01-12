@@ -4,7 +4,7 @@ import "../styles/Header.css";  // CSS 파일 임포트
 function Header() {
     return (
         <div className="header">
-            <a href="/" className="header-link">TITLE</a>
+            <a href="/" className="header-link">Code Sprinter</a>
         </div>
     );
 }

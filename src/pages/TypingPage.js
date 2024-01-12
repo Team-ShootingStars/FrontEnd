@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from "react";
+import React, {useCallback, useEffect, useRef, useState} from "react";
 import Footer from "../components/Footer";
 import TypingMainText from "../components/TypingMainText";
 import TypingInfo from "../components/TypingInfo";
@@ -26,11 +26,15 @@ function TypingPage() {
 
     const [totalTypingSpeed, setTotalTypingSpeed] = useState(0);
     const [totalElapsedTime, setTotalElapsedTime] = useState(null);
+    const [emptyLineCount, setEmptyLineCount] = useState(0);
+
 
     const [showCompleteModal, setShowCompleteModal] = useState(false);
 
     const params = useParams();
     const navigate = useNavigate();
+    const inputRef = useRef(null);
+    const currentRef = useRef(null);
 
     const [isLoading, setIsLoading] = useState(true);
 
@@ -56,23 +60,6 @@ function TypingPage() {
             fetchData();
         }
     }, [navigate, params.codeLang, params.textId]);
-
-    useEffect(() => {
-        const preventPaste = (e) => {
-            e.preventDefault();
-        };
-
-        const inputs = document.querySelectorAll('input');
-        inputs.forEach(input => {
-            input.addEventListener('paste', preventPaste);
-        });
-
-        return () => {
-            inputs.forEach(input => {
-                input.removeEventListener('paste', preventPaste);
-            });
-        };
-    }, []);
 
     // elapsedTime 을 업데이트하는 useEffect
     useEffect(() => {
@@ -157,15 +144,18 @@ function TypingPage() {
                 typingEnd();
             } else {
                 let nextIndex = currentIndex + 1;
+                let emptyLine = emptyLineCount;
                 // 다음 텍스트가 비어 있는 경우를 처리
                 while (LONG_TEXTS[nextIndex].trim().length === 0) {
                     nextIndex++;
-                    if (nextIndex === totalIndex - 1) {
+                    emptyLine++;
+                    if (nextIndex === totalIndex) {
                         typingEnd();
                         nextIndex = 0;
                         break
                     }
                 }
+                setEmptyLineCount(emptyLine);
                 setCurrentIndex(nextIndex);
             }
             setInputValue('');
@@ -173,13 +163,15 @@ function TypingPage() {
             setTypedChars(0);
 
         } else if (inputValue !== '' && inputValue !== LONG_TEXTS[currentIndex].trim()) {
-            const currentTextElement = document.querySelector('.typingPage-current-text');
-            currentTextElement.classList.add('shake');
-            setTimeout(() => {
-                currentTextElement.classList.remove('shake');
-            }, 500);
+            if (currentRef.current) {
+                const currentTextElement = currentRef.current;
+                currentTextElement.classList.add('shake');
+                setTimeout(() => {
+                    currentTextElement.classList.remove('shake');
+                }, 500);
+            }
         }
-    }, [LONG_TEXTS, currentIndex, inputValue, totalIndex, totalTypingSpeed, typingEnd, typingSpeed]);
+    }, [LONG_TEXTS, currentIndex, emptyLineCount, inputValue, totalIndex, totalTypingSpeed, typingEnd, typingSpeed]);
 
     const formatTime = (seconds) => {
         const hours = Math.floor(seconds / 3600);
@@ -197,6 +189,7 @@ function TypingPage() {
         setShowCompleteModal(false);
         setTotalElapsedTime(null);
         setTotalTypingSpeed(0);
+        setEmptyLineCount(0);
     }
     const handleMoveHome = () => {
         handleCloseTypingCompleteModal()
@@ -223,6 +216,7 @@ function TypingPage() {
                     totalIndex={totalIndex}
                     typingSpeed={typingSpeed}
                     elapsedTime={formatTime(elapsedTime)}
+                    isModalOpen={showCompleteModal}
                 />
                 <TypingInputText
                     text={LONG_TEXTS[currentIndex].trim()}
@@ -231,13 +225,15 @@ function TypingPage() {
                     handleEnterPress={handleEnterPress}
                     handleInputFocus={handleInputFocus}
                     isModalOpen={showCompleteModal}
+                    currentRef={currentRef}
+                    inputRef={inputRef}
                 />
             </div>
             <Footer/>
             {showCompleteModal && (
                 <TypingCompleteModal
                     time={formatTime(totalElapsedTime)}
-                    speed={Math.round(totalTypingSpeed / totalIndex)}
+                    speed={Math.round(totalTypingSpeed / (totalIndex - emptyLineCount))}
                     onClose={handleCloseTypingCompleteModal}
                     moveHome={handleMoveHome}
                     moveCodeList={handleMoveCodeList}
