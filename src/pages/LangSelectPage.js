@@ -45,7 +45,7 @@ function LangSelectPage() {
       <div>
         <Header/>
         <div className={"langSelectPage-main-container"}>
-          <h1 className={"select-stadium"}>Select Your Stadium</h1>
+          <h1 className={"select-stadium"}>Select Stadium</h1>
           <div
               className="lang-top-button-container"
               onContextMenu={handleContextMenu}
