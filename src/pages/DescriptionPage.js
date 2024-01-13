@@ -64,7 +64,7 @@ function DescriptionPage() {
               <button
                 className={"start-btn"}
                 onClick={startTyping}>
-                  타자 검증 시작
+                  Start Track
               </button>
             </div>
             <Footer/>

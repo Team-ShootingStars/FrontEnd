@@ -1,9 +1,15 @@
 .description-container {
+    margin-top: 60px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 80px 200px 80px 200px;
-    height: calc(80vh - 80px);
+    padding: 0 150px;
+    height: calc(100vh - 128px);
+    animation: scaleIn 1s forwards;
+}
+
+.description-title {
+    margin-top: 80px;
 }
 
 .description-text {
@@ -15,18 +21,31 @@
 }
 
 .description-info {
+    margin-top: 35px;
+    margin-bottom: 35px;
     text-align: center;
-    border-color: white;
     border: 1px solid white;
     padding: 10px;
     /* opacity: 0.5; */
 }
 
 .start-btn {
-    margin: auto;
+    margin-bottom: 40px;
+    align-self: center;
     width: 180px;
-    font-size: 20px;
+    height: 80px;
+    border: #2e2e2e solid 2px;
+    border-radius: 8px;
+    font-size: 18px;
     font-weight: bold;
+    cursor: pointer;
     color: white;
-    background-color: #3a8ff0;
+    background: #2e2e2e;
+    transition: all 0.3s ease;
+}
+
+.start-btn:hover {
+    border: #9400FF solid 2px;
+    background-color: #9400FF;
+    box-shadow: 0 50px 30px rgba(148, 0, 255, 0.2);
 }

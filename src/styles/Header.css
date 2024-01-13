@@ -1,14 +1,28 @@
-.header {
+.header,
+.headerHome {
   display: flex;
   position: fixed;
   width: 100%;
   align-items: center;
   justify-content: flex-start;
   height: 60px;
-  background-color: #1e1e1e;
+  background-color: #121212;
   padding: 0 25px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1;
+}
+
+.headerHome {
+  background: linear-gradient( #121212, rgba(18, 18, 18, 1), rgba(148, 0, 255, 0.06));
+  animation: shadowIn 1s ease forwards;
+}
+
+@keyframes shadowIn {
+  from {
+    box-shadow: 0 0 0 rgba(148, 0, 255, 0);
+  }
+  to {
+    box-shadow: 0 10px 80px rgba(148, 0, 255, 0.15);
+  }
 }
 
 .header-link {
