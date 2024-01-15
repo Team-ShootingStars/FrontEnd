@@ -210,6 +210,9 @@ function TypingPage() {
         <div>
             <Header/>
             <div className={"typingPage-main-container"}>
+                {/*<div className={"ad"}>*/}
+                {/*    <p>광고</p>*/}
+                {/*</div>*/}
                 <TypingMainText longText={LONG_TEXTS} currentIndex={currentIndex}/>
                 <TypingInfo
                     currentIndex={currentIndex}

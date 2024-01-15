@@ -4,8 +4,15 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 20px;
-    height: calc(100vh - 130px);
+    height: calc(100vh - 128px);
+    animation: scaleIn 1s forwards;
 }
+
+/*.ad {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    align-content: center;*/
+/*}*/
 
 .typingPage-long-text-container {
     height: 100%;

@@ -58,8 +58,8 @@ function TypingCompleteModal({ time, speed, onClose, moveHome, moveCodeList}) {
                     </p>
                 </div>
                 <div className={"complete-modal-content-buttons"}>
-                    <button onClick={moveHome}>Home</button>
-                    <button onClick={moveCodeList}>Code List</button>
+                    <button className={"complete-modal-home-button"} onClick={moveHome}>Stadium</button>
+                    <button onClick={moveCodeList}>Track List</button>
                 </div>
             </div>
         </div>

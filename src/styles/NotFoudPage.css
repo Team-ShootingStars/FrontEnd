@@ -7,10 +7,11 @@
     text-align: center;
     height: calc(100vh - 130px);
     padding: 20px;
+    animation: scaleIn 1s forwards;
 }
 
 .error404-img {
-    width: 400px;
+    width: 350px;
     user-select: none;
 }
 
