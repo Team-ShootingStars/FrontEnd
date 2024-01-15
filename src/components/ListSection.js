@@ -15,7 +15,7 @@ function ListSection({}) {
     }, []);
 
     return (
-        <div className={"list-section"}>
+        <div className={"list-section"} id='textId'>
             {/* 리스트들 */}
             {posts.map(post => (
                 <div key={post.id} className="post">

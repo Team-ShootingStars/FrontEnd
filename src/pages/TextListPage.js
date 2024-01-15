@@ -6,6 +6,7 @@ import PageSection from "../components/PageSection";
 import Footer from "../components/Footer";
 
 import "../styles/TextListPage.css"
+import { useNavigate } from "react-router-dom";
 import {useParams} from "react-router-dom";
 
 function TextListPage() {
