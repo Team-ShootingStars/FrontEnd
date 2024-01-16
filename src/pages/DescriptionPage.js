@@ -7,7 +7,6 @@ import axios from "axios";
 import "../styles/DescriptionPage.css";
 import DescriptionText from "../components/DescriptionText";
 import Loading from "../components/Loading";
-import runner from "../assets/runner.gif";
 
 function DescriptionPage() {
     const [DES_DATA, setDES_DATA] = useState(['']);
@@ -58,18 +57,6 @@ function DescriptionPage() {
         );
     });
 
-    // const handleContextMenu = (e) => {
-    //     e.preventDefault();
-    // };
-    //
-    // const handleMouseDown = (e) => {
-    //     e.preventDefault();
-    // };
-    //
-    // const handleDragStart = (e) => {
-    //     e.preventDefault();
-    // };
-
     if (isLoading) {
         return (
             <Loading/>
@@ -88,15 +75,6 @@ function DescriptionPage() {
                     <div className={"description-info-tags"}>
                         {styleDescription}
                     </div>
-                    {/*<div className="description-runner">*/}
-                    {/*    <img*/}
-                    {/*        src={runner}*/}
-                    {/*        alt="러너"*/}
-                    {/*        onContextMenu={handleContextMenu}*/}
-                    {/*        onMouseDown={handleMouseDown}*/}
-                    {/*        onDragStart={handleDragStart}*/}
-                    {/*    />*/}
-                    {/*</div>*/}
                 </div>
                 <DescriptionText longText={JSON.parse(DES_DATA.desText)} lang={params.codeLang}/>
                 <div className={"description-bottom-container"}>
