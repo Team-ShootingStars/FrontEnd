@@ -7,6 +7,7 @@ import axios from "axios";
 import "../styles/DescriptionPage.css";
 import DescriptionText from "../components/DescriptionText";
 import Loading from "../components/Loading";
+import DescriptionTextPython from "../components/DescriptionTextPython";
 
 function DescriptionPage() {
     const [DES_DATA, setDES_DATA] = useState(['']);
@@ -49,27 +50,52 @@ function DescriptionPage() {
         );
     }
 
-    return (
-        <div>
-            <Header/>
-            <div className={"description-container"}>
-              <h2 className="description-title">
-                {DES_DATA.title}
-              </h2>
-                <DescriptionText longText={JSON.parse(DES_DATA.desText)}/>
-                {/* <p>{LONG_TEXTS.desText}</p> */}
-              <h3 className="description-info">
-                {DES_DATA.description}
-              </h3>
-              <button
-                className={"start-btn"}
-                onClick={startTyping}>
-                  Start Track
-              </button>
+    if (params.codeLang === "PYTHON") {
+        return (
+            <div>
+                <Header/>
+                <div className={"description-container"}>
+                  <h2 className="description-title">
+                    {DES_DATA.title}
+                  </h2>
+                    <DescriptionTextPython longText={JSON.parse(DES_DATA.desText)}/>
+                  <h3 className="description-info">
+                    {DES_DATA.description}
+                  </h3>
+                  <button
+                    className={"start-btn"}
+                    onClick={startTyping}>
+                      Start Track
+                  </button>
+                </div>
+                <Footer/>
             </div>
-            <Footer/>
-        </div>
-    )
+        )
+    }
+
+    else {
+        return (
+            <div>
+                <Header/>
+                <div className={"description-container"}>
+                  <h2 className="description-title">
+                    {DES_DATA.title}
+                  </h2>
+                    <DescriptionText longText={JSON.parse(DES_DATA.desText)}/>
+                  <h3 className="description-info">
+                    {DES_DATA.description}
+                  </h3>
+                  <button
+                    className={"start-btn"}
+                    onClick={startTyping}>
+                      Start Track
+                  </button>
+                </div>
+                <Footer/>
+            </div>
+        )
+    }
+
 }
 
 export default DescriptionPage;
