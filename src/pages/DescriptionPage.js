@@ -8,7 +8,6 @@ import "../styles/DescriptionPage.css";
 import DescriptionText from "../components/DescriptionText";
 import Loading from "../components/Loading";
 import runner from "../assets/runner.gif";
-import BgAnimation from "../components/BgAnimation";
 
 function DescriptionPage() {
     const [DES_DATA, setDES_DATA] = useState(['']);
@@ -59,17 +58,17 @@ function DescriptionPage() {
         );
     });
 
-    const handleContextMenu = (e) => {
-        e.preventDefault();
-    };
-
-    const handleMouseDown = (e) => {
-        e.preventDefault();
-    };
-
-    const handleDragStart = (e) => {
-        e.preventDefault();
-    };
+    // const handleContextMenu = (e) => {
+    //     e.preventDefault();
+    // };
+    //
+    // const handleMouseDown = (e) => {
+    //     e.preventDefault();
+    // };
+    //
+    // const handleDragStart = (e) => {
+    //     e.preventDefault();
+    // };
 
     if (isLoading) {
         return (
@@ -78,7 +77,7 @@ function DescriptionPage() {
     }
 
     return (
-        <div className={"description-page"}>
+        <div>
             <Header/>
             <div className={"description-main-container"}>
                 <div className="description-info-container">
