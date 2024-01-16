@@ -1,0 +1,54 @@
+/* KeyboardLayout.css */
+.keyboard-layout-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: -1;
+}
+
+.keyboard-layout {
+    display: grid;
+    grid-template-columns: repeat(15, 1fr);
+    gap: 10px;
+    padding: 10px;
+    background-color: #121212;
+    border-radius: 10px;
+}
+
+.keyboard-key {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    height: 180px;
+    background-color: #121212;
+    color: #2e2e2e;
+    font-size: 40px;
+    font-weight: bold;
+    border: 1px solid #121212;
+    border-radius: 40px;
+    transition: all 2s ease;
+}
+
+.keyboard-key.span-2 {
+    grid-column: span 2;
+    width: 372px;
+}
+
+.keyboard-key.span-3 {
+    grid-column: span 3;
+    width: 564px;
+}
+
+.keyboard-key.span-8 {
+    grid-column: span 8;
+    width: 1524px;
+}
+
+.keyboard-key.active {
+    box-shadow: 0 0 20px 5px rgba(18, 18, 18, 0.7), 0 0 30px 15px rgba(148, 0, 255, 0.3);
+    color: #fff;
+}

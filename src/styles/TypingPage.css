@@ -3,8 +3,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 20px;
-    height: calc(100vh - 128px);
+    padding: 0 20px;
+    height: calc(100vh - 86px);
     animation: scaleIn 1s forwards;
 }
 
@@ -25,13 +25,15 @@
 }
 
 .typingPage-current-text {
+    margin: 12px 0;
+    padding: 5px;
+    border-radius: 6px;
     word-break: break-word;
 }
 
 .typingPage-current-text.before,
 .typingPage-current-text.after{
     border: none;
-    padding: 5px;
 }
 
 .typingPage-current-text.before {
@@ -41,13 +43,11 @@
 .typingPage-current-text.current {
     color: gray;
     border: 2px solid #9400FF;
-    padding: 5px;
 }
 
 .typingPage-current-text.after{
     color: white;
 }
-
 
 .typingPage-long-text-container::-webkit-scrollbar {
     width: 8px;
@@ -61,17 +61,6 @@
 .typingPage-long-text-container::-webkit-scrollbar-thumb:hover {
     background-color: #888;
 }
-
-.typingPage-long-text-container p {
-    margin: 12px 0;
-    padding: 10px;
-    border-radius: 6px;
-    /*transition: background-color 0.3s ease;*/
-}
-
-/*.typingPage-long-text-container p:hover {*/
-/*    background-color: #2a2a2a;*/
-/*}*/
 
 .typingPage-info-container {
     display: flex;
@@ -125,7 +114,7 @@
 .typingPage-input-current-text {
     margin: 0 0 2px;
     display: block;
-    max-width: 100%;
+    width: 100%;
     font-size: 18px;
     padding: 14px 12px;
     border: 2px solid #333333;
