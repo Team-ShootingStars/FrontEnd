@@ -5,7 +5,6 @@
     justify-content: center;
     padding: 0 80px;
     height: calc(100vh - 86px);
-    background-color: rgba(18, 18, 18, 0.7);
     animation: scaleIn 1s forwards;
 }
 
