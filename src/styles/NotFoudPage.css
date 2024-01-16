@@ -5,8 +5,8 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: calc(100vh - 130px);
-    padding: 20px;
+    height: calc(100vh - 86px);
+    padding: 0 20px;
     animation: scaleIn 1s forwards;
 }
 

@@ -1,6 +1,5 @@
 import React from "react";
 import Hill from "./Hill";
-import "../styles/BgAnimationStyles.css";
 
 export default class BgAnimation extends React.Component {
   constructor(props) {

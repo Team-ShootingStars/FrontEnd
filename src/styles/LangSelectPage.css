@@ -4,12 +4,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: calc(100vh - 90px);
-  background-color: rgba(0, 0, 0, 0.7);
+  height: calc(100vh - 86px);
+  background-color: rgba(18, 18, 18, 0.7);
+  /*background-color: rgba(18, 18, 18, 0.3);*/
+  /*backdrop-filter: blur(5px);*/
 }
 
 .langSelectPage-main-container .select-stadium {
   margin-bottom: 60px;
+  font-size: 50px;
+  margin-left: 25px;
+  background: linear-gradient(90deg, #00ffff, #9400ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: scaleIn 1s forwards;
 }
 
 .lang-top-button-container {
@@ -44,8 +53,8 @@
 }
 
 .lang-top-button-container img {
-  width: 175px;
-  height: 175px;
+  width: 185px;
+  height: 185px;
   margin: 20px;
   border: 3px solid transparent;
   border-radius: 12px;
@@ -56,7 +65,7 @@
 
 .lang-top-button-container img.selected {
   border: 3px solid #9400ff;
-  box-shadow: 0 50px 30px rgba(148, 0, 255, 0.2);
+  /*box-shadow: 0 50px 30px rgba(148, 0, 255, 0.2);*/
 }
 
 .lang-top-button-container img:hover {
@@ -66,13 +75,13 @@
 .lang-bottom-button-container {
   margin-top: 30px;
   display: flex;
-  width: 410px;
+  width: 430px;
   justify-content: space-between;
 }
 
 .lang-select-random-button,
 .lang-select-list-button {
-  width: 185px;
+  width: 195px;
 }
 
 .lang-select-random-button {
@@ -146,27 +155,18 @@
   left: 50%; /* 왼쪽에서 50%의 위치에 배치 */
   transform: translateX(-50%); /* X축으로 -50% 만큼 이동시켜 가운데 정렬 */
   transition: opacity 0.5s ease-out;
+  z-index: 1;
 }
 
 .lang-runner img {
-  margin-bottom: 0px;
+  margin-bottom: 0;
   width: 80px;
   height: auto;
-  transform: scaleX(-1);
+  /*transform: scaleX(-1);*/
 }
 
 @media screen and (max-height: 930px) {
   .lang-runner {
     opacity: 0; /* opacity를 0으로 설정하여 요소를 투명하게 만듦 */
   }
-}
-
-.langSelectPage-main-container .select-stadium {
-  margin-bottom: 60px;
-  margin-left: 8px;
-  background: linear-gradient(90deg, #00ffff, #9400ff);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: scaleIn 1s forwards;
 }

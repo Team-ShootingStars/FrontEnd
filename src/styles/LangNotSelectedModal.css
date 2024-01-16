@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: scaleIn 0.3s forwards;
 }
 
 .p1-complete-modal-content {
@@ -38,5 +39,4 @@
 .p1-complete-modal-content button:hover {
   border: #9400ff solid 1px;
   background-color: #9400ff;
-  transform: scale(1.05);
 }

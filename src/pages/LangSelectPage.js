@@ -11,6 +11,7 @@ import pythonIco from "../assets/python.svg";
 import LangNotSelectedModal from "../components/modal/LangNotSelectedModal";
 import BgAnimation from "../components/BgAnimation";
 import runner from "../assets/runner.gif";
+import KeyboardLayout from "../components/KeyboardLayout";
 
 function LangSelectPage() {
   const [selectedLang, setSelectedLang] = useState(""); // 선택된 언어를 저장하는 상태 변수
@@ -53,14 +54,7 @@ function LangSelectPage() {
 
   return (
     <div className="lang-select-page">
-      <div
-        className="lang-runner"
-        onContextMenu={handleContextMenu}
-        onMouseDown={handleMouseDown}
-        onDragStart={handleDragStart}
-      >
-        <img src={runner} alt="러너" />
-      </div>
+      {/*<KeyboardLayout/>*/}
       <BgAnimation />
       <Header />
       <div className={"langSelectPage-main-container"}>
@@ -113,6 +107,14 @@ function LangSelectPage() {
         </div>
       </div>
       {isModalVisible && <LangNotSelectedModal onClose={closeModal} />}
+      <div
+          className="lang-runner"
+          onContextMenu={handleContextMenu}
+          onMouseDown={handleMouseDown}
+          onDragStart={handleDragStart}
+      >
+        <img src={runner} alt="러너" />
+      </div>
       <Footer />
     </div>
   );
