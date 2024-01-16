@@ -55,7 +55,7 @@ function LangSelectPage() {
   return (
     <div className="lang-select-page">
       {/*<KeyboardLayout/>*/}
-      {/*<BgAnimation />*/}
+      <BgAnimation />
       <Header />
       <div className={"langSelectPage-main-container"}>
         <h1 className={"select-stadium"}>Select Stadium</h1>
