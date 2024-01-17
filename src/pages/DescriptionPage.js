@@ -71,7 +71,7 @@ function DescriptionPage() {
                     <h2 className="description-info-title">
                         {DES_DATA.title}
                     </h2>
-                    <p className={"description-info-provider"}>Provider : ShootingStar</p>
+                    <p className={"description-info-provider"}>Provider : {DES_DATA.author}</p>
                     <div className={"description-info-tags"}>
                         {styleDescription}
                     </div>
