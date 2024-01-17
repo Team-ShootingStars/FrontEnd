@@ -28,10 +28,29 @@ function AboutUsPage() {
         e.preventDefault();
     };
 
+    const memberDiv = (img, name, position, etc) => {
+        return (
+            <div className={"aboutUs-member"}>
+                <img
+                    className={"photo"}
+                    src={img} alt={img}
+                    onContextMenu={handleContextMenu}
+                    onMouseDown={handleMouseDown}
+                    onDragStart={handleDragStart}
+                />
+                <div className={"introduce"}>
+                    <p className={"name"}>{name}</p>
+                    <p className={"position"}>{position}</p>
+                    {etc !== null ? <p className={"etc"}>{etc}</p> : ""}
+                </div>
+            </div>
+        );
+    }
+
     return (
         <div className="aboutUs-page">
-            <BgAnimation />
-            <Header />
+            <BgAnimation/>
+            <Header/>
             <div className={"aboutUs-main-container"}>
                 <div className={"project-introduce-section"}>
                     <img
@@ -54,91 +73,12 @@ function AboutUsPage() {
                 <div className={"team-introduce-section"}>
                     <h2>Team Shooting Star</h2>
                     <div className={"aboutUs-member-container"}>
-                        <div className={"aboutUs-member"}>
-                            <img
-                                className={"photo"}
-                                src={member1} alt={member1}
-                                onContextMenu={handleContextMenu}
-                                onMouseDown={handleMouseDown}
-                                onDragStart={handleDragStart}
-                            />
-                            <div className={"introduce"}>
-                                <p className={"name"}>박건우</p>
-                                <p className={"position"}>Frontend</p>
-                                <p className={"etc"}>Team Leader</p>
-                            </div>
-                        </div>
-                        <div className={"aboutUs-member"}>
-                            <img
-                                className={"photo"}
-                                src={member2}
-                                alt={member2}
-                                onContextMenu={handleContextMenu}
-                                onMouseDown={handleMouseDown}
-                                onDragStart={handleDragStart}
-                            />
-                            <div className={"introduce"}>
-                                <p className={"name"}>최상원</p>
-                                <p className={"position"}>Front, Back</p>
-                                <p className={"etc"}>Project Manager</p>
-                            </div>
-                        </div>
-                        <div className={"aboutUs-member"}>
-                            <img
-                                className={"photo"}
-                                src={member3}
-                                alt={member3}
-                                onContextMenu={handleContextMenu}
-                                onMouseDown={handleMouseDown}
-                                onDragStart={handleDragStart}
-                            />
-                            <div className={"introduce"}>
-                                <p className={"name"}>박경원</p>
-                                <p className={"position"}>Frontend</p>
-                            </div>
-                        </div>
-                        <div className={"aboutUs-member"}>
-                            <img
-                                className={"photo"}
-                                src={member4}
-                                alt={member4}
-                                onContextMenu={handleContextMenu}
-                                onMouseDown={handleMouseDown}
-                                onDragStart={handleDragStart}
-                            />
-                            <div className={"introduce"}>
-                                <p className={"name"}>홍태균</p>
-                                <p className={"position"}>Frontend</p>
-                            </div>
-                        </div>
-                        <div className={"aboutUs-member"}>
-                            <img
-                                className={"photo"}
-                                src={member5}
-                                alt={member5}
-                                onContextMenu={handleContextMenu}
-                                onMouseDown={handleMouseDown}
-                                onDragStart={handleDragStart}
-                            />
-                            <div className={"introduce"}>
-                                <p className={"name"}>송유현</p>
-                                <p className={"position"}>Backend</p>
-                            </div>
-                        </div>
-                        <div className={"aboutUs-member"}>
-                            <img
-                                className={"photo"}
-                                src={member6}
-                                alt={member6}
-                                onContextMenu={handleContextMenu}
-                                onMouseDown={handleMouseDown}
-                                onDragStart={handleDragStart}
-                            />
-                            <div className={"introduce"}>
-                                <p className={"name"}>이재현</p>
-                                <p className={"position"}>Backend</p>
-                            </div>
-                        </div>
+                        {memberDiv(member1, "박건우", "Frontend", "TeamLeader")}
+                        {memberDiv(member2, "최상원", "Front, Back", "Project Manager")}
+                        {memberDiv(member3, "박경원", "Frontend", null)}
+                        {memberDiv(member4, "홍태균", "Frontend", null)}
+                        {memberDiv(member5, "송유현", "Backend", null)}
+                        {memberDiv(member6, "이재현", "Backend", null)}
                     </div>
                 </div>
             </div>
@@ -148,9 +88,9 @@ function AboutUsPage() {
                 onMouseDown={handleMouseDown}
                 onDragStart={handleDragStart}
             >
-              <img src={runner} alt="러너" />
+                <img src={runner} alt="러너"/>
             </div>
-            <Footer />
+            <Footer/>
         </div>
     );
 }
