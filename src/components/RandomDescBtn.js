@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function RandomDescBtn({ selectedLang }) {
+function RandomDescBtn({ selectedLang, openModal }) {
   const navigate = useNavigate();
 
   // 클릭 이벤트 핸들러
@@ -20,7 +20,7 @@ function RandomDescBtn({ selectedLang }) {
           navigate(`/${selectedLang}/description/${textId}`);
         }
       } else {
-        alert("언어를 선택해주세요.");
+        openModal();
       }
     } catch (error) {
       // 오류 발생시 콘솔에 에러 기록
@@ -30,7 +30,10 @@ function RandomDescBtn({ selectedLang }) {
 
   return (
     <div>
-      <button className={"lang-select-random-button"} onClick={handleRandomDescBtnClick}>
+      <button
+        className={"lang-select-random-button"}
+        onClick={handleRandomDescBtnClick}
+      >
         Random Track
       </button>
     </div>

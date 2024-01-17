@@ -10,7 +10,7 @@
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
     z-index: 1000;
-    animation: scaleIn 1s forwards;
+    animation: scaleIn 0.3s forwards;
 }
 
 .complete-modal-content {
@@ -88,5 +88,4 @@
 .complete-modal-content button:hover {
     border: #9400FF solid 1px;
     background-color: #9400FF;
-    transform: scale(1.05);
 }

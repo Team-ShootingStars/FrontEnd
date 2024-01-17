@@ -10,6 +10,8 @@ import Loading from "../components/Loading";
 
 function DescriptionPage() {
     const [DES_DATA, setDES_DATA] = useState(['']);
+    const [description, setDescription] = useState([]);
+
 
     const params = useParams()
     const navigate = useNavigate();
@@ -20,9 +22,10 @@ function DescriptionPage() {
         const fetchData = async () => {
             setIsLoading(true); // 데이터 불러오기 시작
             try {
-                const res = await axios.get('/api/description/' + params.textId);
+                const res = await axios.get('/api/' + params.codeLang + '/description/' + params.textId);
                 if (res.status === 200) {
                     setDES_DATA(res.data);
+                    setDescription(res.data.description.split(","))
                 }
             } catch (error) {
                 navigate("/NotFound");
@@ -43,6 +46,17 @@ function DescriptionPage() {
       navigate("/" + params.codeLang + "/typing/" + params.textId);
     };
 
+    
+    const styleDescription = description.map((tag, index) => {
+        return (
+            <div key={index} className={"tag-back"}>
+                <div className={"tag"}>
+                    {tag.trim()}
+                </div>
+            </div>
+        );
+    });
+
     if (isLoading) {
         return (
             <Loading/>
@@ -52,24 +66,28 @@ function DescriptionPage() {
     return (
         <div>
             <Header/>
-            <div className={"description-container"}>
-              <h2 className="description-title">
-                {DES_DATA.title}
-              </h2>
-                <DescriptionText longText={JSON.parse(DES_DATA.desText)}/>
-                {/* <p>{LONG_TEXTS.desText}</p> */}
-              <h3 className="description-info">
-                {DES_DATA.description}
-              </h3>
-              <button
-                className={"start-btn"}
-                onClick={startTyping}>
-                  Start Track
-              </button>
+            <div className={"description-main-container"}>
+                <div className="description-info-container">
+                    <h2 className="description-info-title">
+                        {DES_DATA.title}
+                    </h2>
+                    <p className={"description-info-provider"}>Provider : {DES_DATA.author}</p>
+                    <div className={"description-info-tags"}>
+                        {styleDescription}
+                    </div>
+                </div>
+                <DescriptionText longText={JSON.parse(DES_DATA.desText)} lang={params.codeLang}/>
+                <div className={"description-bottom-container"}>
+                    <button
+                        className={"start-btn"}
+                        onClick={startTyping}>
+                        Start Track
+                    </button>
+                </div>
             </div>
             <Footer/>
         </div>
-    )
+    );
 }
 
 export default DescriptionPage;

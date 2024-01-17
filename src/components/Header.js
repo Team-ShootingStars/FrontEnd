@@ -1,15 +1,31 @@
 import React from "react";
 import "../styles/Header.css";
-import {useLocation} from "react-router-dom";  // CSS 파일 임포트
+import logo from "../assets/headerLogo.png";
 
 function Header() {
-    const location = useLocation();
+    const handleContextMenu = (e) => {
+        e.preventDefault();
+    };
+
+    const handleMouseDown = (e) => {
+        e.preventDefault();
+    };
+
+    const handleDragStart = (e) => {
+        e.preventDefault();
+    };
 
     return (
-        <div
-            className={location.pathname.includes("/typing") ? "header" : "headerHome"}
-        >
-            <a href="/" className="header-link">Code Sprinter</a>
+        <div className={"header"}>
+            <a href="/" className="header-link">
+                <img
+                    alt={logo}
+                    src={logo}
+                    onContextMenu={handleContextMenu}
+                    onMouseDown={handleMouseDown}
+                    onDragStart={handleDragStart}
+                />
+            </a>
         </div>
     );
 }

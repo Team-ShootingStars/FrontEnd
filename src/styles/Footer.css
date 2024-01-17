@@ -1,15 +1,30 @@
 .footer {
     position: fixed;
     background-color: #121212;
-    color: gray;
     padding: 5px 0;
     text-align: center;
     width: 100%;
     bottom: 0;
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
 
-.footer-copy {
+.footer-copy,
+.AboutUs {
+    text-decoration: none;
+    color: gray;
     margin: 0;
     font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+.AboutUs .imo{
+    font-size: 10px;
+}
+
+.AboutUs:hover {
+    color: #007bff;
 }

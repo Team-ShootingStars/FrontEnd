@@ -1,5 +1,4 @@
-.header,
-.headerHome {
+.header {
   display: flex;
   position: fixed;
   width: 100%;
@@ -7,31 +6,14 @@
   justify-content: flex-start;
   height: 60px;
   background-color: #121212;
-  padding: 0 25px;
+  padding: 0 15px;
   z-index: 1;
 }
 
-.headerHome {
-  background: linear-gradient( #121212, rgba(18, 18, 18, 1), rgba(148, 0, 255, 0.06));
-  animation: shadowIn 1s ease forwards;
-}
-
-@keyframes shadowIn {
-  from {
-    box-shadow: 0 0 0 rgba(148, 0, 255, 0);
-  }
-  to {
-    box-shadow: 0 10px 80px rgba(148, 0, 255, 0.15);
-  }
-}
-
-.header-link {
-  text-decoration: none;
-  color: white;
-  font-size: 24px;
-  transition: color 0.3s ease;
-}
-
-.header-link:hover {
-  color: #007bff;
+.header-link img {
+  padding: 0;
+  margin: 0;
+  width: 200px;
+  height: 60px;
+  white-space: nowrap;
 }
