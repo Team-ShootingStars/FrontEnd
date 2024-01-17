@@ -22,7 +22,7 @@ function DescriptionPage() {
         const fetchData = async () => {
             setIsLoading(true); // 데이터 불러오기 시작
             try {
-                const res = await axios.get('/api/description/' + params.textId);
+                const res = await axios.get('/api/' + params.codeLang + '/description/' + params.textId);
                 if (res.status === 200) {
                     setDES_DATA(res.data);
                     setDescription(res.data.description.split(","))
@@ -71,7 +71,7 @@ function DescriptionPage() {
                     <h2 className="description-info-title">
                         {DES_DATA.title}
                     </h2>
-                    <p className={"description-info-provider"}>Provider : ShootingStar</p>
+                    <p className={"description-info-provider"}>Provider : {DES_DATA.author}</p>
                     <div className={"description-info-tags"}>
                         {styleDescription}
                     </div>

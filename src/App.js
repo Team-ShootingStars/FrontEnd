@@ -7,6 +7,7 @@ import LangSelectPage from "./pages/LangSelectPage";
 import DescriptionPage from "./pages/DescriptionPage";
 import TextListPage from "./pages/TextListPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import AboutUsPage from "./pages/AboutUsPage"
 
 function App() {
     return (
@@ -18,6 +19,7 @@ function App() {
                     <Route path={":codeLang/description/:textId"} element={<DescriptionPage/>}/>
                     <Route path={":codeLang/typing/:textId"} element={<TypingPage/>}/>
                     <Route path="/NotFound" element={<NotFoundPage />} />
+                    <Route path="/AboutUs" element={<AboutUsPage />} />
                     <Route path={"*"} element={<NotFoundPage/>} />
                 </Routes>
             </Router>
