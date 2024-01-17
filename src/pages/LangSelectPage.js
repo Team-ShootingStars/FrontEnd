@@ -9,8 +9,6 @@ import jsIco from "../assets/js.svg";
 import cppIco from "../assets/cpp.png";
 import pythonIco from "../assets/python.svg";
 import LangNotSelectedModal from "../components/modal/LangNotSelectedModal";
-import BgAnimation from "../components/BgAnimation";
-import runner from "../assets/runner.gif";
 import KeyboardLayout from "../components/KeyboardLayout";
 
 function LangSelectPage() {
@@ -54,8 +52,7 @@ function LangSelectPage() {
 
   return (
     <div className="lang-select-page">
-      {/*<KeyboardLayout/>*/}
-      <BgAnimation />
+      <KeyboardLayout/>
       <Header />
       <div className={"langSelectPage-main-container"}>
         <h1 className={"select-stadium"}>Select Stadium</h1>
@@ -107,14 +104,6 @@ function LangSelectPage() {
         </div>
       </div>
       {isModalVisible && <LangNotSelectedModal onClose={closeModal} />}
-      <div
-          className="lang-runner"
-          onContextMenu={handleContextMenu}
-          onMouseDown={handleMouseDown}
-          onDragStart={handleDragStart}
-      >
-        <img src={runner} alt="러너" />
-      </div>
       <Footer />
     </div>
   );

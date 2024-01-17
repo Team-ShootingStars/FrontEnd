@@ -3,8 +3,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 0 20px;
-    height: calc(100vh - 86px);
+    padding: 10px 20px 20px 20px;
+    height: calc(100vh - 116px);
     animation: scaleIn 1s forwards;
 }
 
@@ -28,7 +28,7 @@
     margin: 12px 0;
     padding: 5px;
     border-radius: 6px;
-    word-break: break-word;
+    word-break: keep-all;
 }
 
 .typingPage-current-text.before,
@@ -120,7 +120,7 @@
     border: 2px solid #333333;
     border-radius: 12px;
     box-sizing: border-box;
-    word-break: break-word;
+    word-break: keep-all;
 }
 
 
