@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import "../styles/AboutUsPage.css"
 import BgAnimation from "../components/BgAnimation";
 import runner from "../assets/runner.gif";
-import logo from "../assets/headerLogo.png";
+import logo from "../assets/logo.png";
 
 import member1 from "../assets/member1.jpg";
 import member2 from "../assets/member2.jpeg";

@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/Header.css";
-import logo from "../assets/headerLogo.png";
+import logo from "../assets/logo.png";
 
 function Header() {
     const handleContextMenu = (e) => {
