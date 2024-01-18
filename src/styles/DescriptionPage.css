@@ -29,6 +29,19 @@
     font-size: 15px;
 }
 
+.description-info-provider a {
+    padding-left: 1px;
+    text-decoration: none;
+    color: white;
+    margin: 0;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+.description-info-provider a:hover {
+    color: #007bff;
+}
+
 .description-info-tags {
     display: flex;
     gap: 10px;
