@@ -6,13 +6,13 @@ function ListSection({}) {
 
     const [posts, setPosts] = useState([]);
 
-    useEffect(() => {
-        // 데이터 페칭 로직
-        fetch('API_ENDPOINT')
-            .then(response => response.json())
-            .then(data => setPosts(data))
-            .catch(error => console.error(error));
-    }, []);
+    // useEffect(() => {
+    //     // 데이터 페칭 로직
+    //     fetch('API_ENDPOINT')
+    //         .then(response => response.json())
+    //         .then(data => setPosts(data))
+    //         .catch(error => console.error(error));
+    // }, []);
 
     return (
         <div className={"list-section"} id='textId'>

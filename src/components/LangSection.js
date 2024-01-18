@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import RandomDescBtn from "../components/RandomDescBtn";
 import axios from "axios";
@@ -6,9 +6,13 @@ import Loading from "../components/Loading";
 import "../styles/TextListPage.css"
 
 function LangSection({}) {
+    // const [selectedLang, setSelectedLang] = useState("");
+
     const params = useParams()
+    console.log(params.codeLang);
     const navigate = useNavigate();
-    params.codeLang = "JavaScript"; // 전달받은 언어 코드
+
+    // params.codeLang = "JavaScript"; // 전달받은 언어 코드
 
     const [isLoading, setIsLoading] = useState(true);
 
@@ -16,24 +20,25 @@ function LangSection({}) {
         const fetchData = async () => {
             setIsLoading(true); // 데이터 불러오기 시작
             try {
-                const res = await axios.get(`/api/${selectedLang}/list?page=1&order=name`);
+                const res = await axios.get(`/api/${params.codeLang}/list?page=1&sortingType=TITLE_ASC`);
                 if (res.status === 200) {
-                    setLONG_TEXTS(res.data);
-                    setTotalIndex(res.data.length);
+                    console.log(res);
                 }
             } catch (error) {
-                navigate("/NotFound");
+                // navigate("/NotFound");
             } finally {
                 setIsLoading(false); // 데이터 불러오기 완료
-                printLangName();
+                // printLangName(); 
             }
         }
 
-        if (params.codeLang === null || isNaN(params.codeLang)) {
-            navigate("/NotFound");
-        } else {
-            fetchData();
-        }
+        fetchData();
+
+        // if (params.selectedLang === null || isNaN(params.selectedLang)) {
+        //     navigate("/NotFound");
+        // } else {
+        //     fetchData();
+        // }
     }, [navigate, params.codeLang]);
 
     if (isLoading) {
@@ -44,8 +49,10 @@ function LangSection({}) {
 
     return (
         <div className={"language-section"}>
+
             {/* 언어표시버튼 */}
-            <button className="lang-button">{params.codeLang}</button>
+            {/* <button className="lang-button">{params.codeLang}</button> */}
+            <span>{params.codeLang}</span>
 
             {/* 검색창 */}
             <input type="text" className="search-input" placeholder="검색"/>
@@ -57,10 +64,12 @@ function LangSection({}) {
             </select>
 
             {/* 랜덤버튼 */}
-            <RandomDescBtn selectedLang={selectedLang}/>
+            <span>
+            <RandomDescBtn selectedLang={params.codeLang}/>
+            </span>
+            
         </div>
     );
 }
 
 export default LangSection;
-
