@@ -5,7 +5,7 @@ import './App.css';
 import TypingPage from "./pages/TypingPage";
 import LangSelectPage from "./pages/LangSelectPage";
 import DescriptionPage from "./pages/DescriptionPage";
-import TextListPage from "./pages/TextListPage";
+import TrackListPage from "./pages/TrackListPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import AboutUsPage from "./pages/AboutUsPage"
 
@@ -15,7 +15,7 @@ function App() {
             <Router>
                 <Routes>
                     <Route path={"/"} element={<LangSelectPage/>}/>
-                    <Route path={":codeLang/list"} element={<TextListPage/>}/>
+                    <Route path={":codeLang/list"} element={<TrackListPage/>}/>
                     <Route path={":codeLang/description/:textId"} element={<DescriptionPage/>}/>
                     <Route path={":codeLang/typing/:textId"} element={<TypingPage/>}/>
                     <Route path="/NotFound" element={<NotFoundPage />} />

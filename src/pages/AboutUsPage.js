@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 import "../styles/AboutUsPage.css"
-import BgAnimation from "../components/BgAnimation";
+import BgAnimation from "../components/background/BgAnimation";
 import runner from "../assets/runner.gif";
 import logo from "../assets/logo.png";
 

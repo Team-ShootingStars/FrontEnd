@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import runner from "../assets/runner.gif";
+import runner from "../../assets/runner.gif";
 
 function TypingInfo({ totalIndex, currentIndex, elapsedTime, typingSpeed, isModalOpen }) {
     const [progressWidth, setProgressWidth] = useState(0);

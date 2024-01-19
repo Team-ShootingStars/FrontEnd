@@ -1,6 +1,6 @@
 // KeyboardLayout.js
 import React from "react";
-import "../styles/KeyboardLayout.css";
+import "../../styles/KeyboardLayout.css";
 import KeyboardKey from "./KeyboardKey";
 
 const keyboardKeys = [
