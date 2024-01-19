@@ -1,37 +1,75 @@
 .main-container {
+    padding: 20px;
+    margin-top: 60px;
+    /* width: 1200px; */
+    /* height: auto; */
+
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
-    height: calc(100vh - 130px);
+    align-items: center;
+    justify-content: center;
 }
 
-.language-section {
+.main-container .sub-container-top {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: flex-start;
     justify-content: space-between;
-    padding: 20px;
-    height: calc(100vh - 130px);
+    align-content: middle;
+    width: 70%;
+    margin-top: 30px;
+    margin-bottom: 70px;
 }
 
-.list-section {
+.main-container .sub-container-top .sub-container-topleft {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    /* align-content: middle;
+    width: 70%;
+    margin-top: 30px;
+    margin-bottom: 70px; */
+}
+
+.main-container .sub-container-top .sub-container-topright {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    /* align-content: middle;
+    width: 70%;
+    margin-top: 30px;
+    margin-bottom: 70px; */
+}
+
+.main-container .langname {
+    font-size: 2rem;
+    /* margin: 10px; */
+    margin-right: 10%;
+}
+
+.sub-container-middle {
+    /* display: flex; */
     flex-direction: column;
     justify-content: space-between;
+    /* padding: 20px; */
+    width: 70%;
+    height: auto;
+}
+
+.sub-container-middle .boxline {
+    border: 1px solid aliceblue;
     padding: 20px;
-    height: calc(100vh - 130px);
+    margin: 20px 0px;
+    width: auto;
+
+    display: flex;
+    justify-content: space-between;
+}
+
+.sub-container-middle .boxline h3, p {
+    margin: 0px;
 }
 
 .lang-button {
-    padding: 20px;
-}
-
-  
-/* RandomBtn 스타일 */
-.random-button {
-    color: #333;
-}
-  
-.random-button:hover {
-    color: blue;
+    margin-right: 20px;
 }
