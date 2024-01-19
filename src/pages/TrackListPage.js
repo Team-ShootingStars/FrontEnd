@@ -203,7 +203,7 @@ function TrackListPage() {
 
                     <div className={"trackList-sub-middle-container"}>
                         {totalRecord === 0
-                            ? <p>일치하는 트랙이 없습니다.</p>
+                            ? <h2 className={"noMatch"}>No matching tracks found.</h2>
                             : posts.map(post => (
                                 <div
                                     key={post.id}

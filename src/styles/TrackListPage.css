@@ -87,6 +87,10 @@
     gap: 20px;
 }
 
+.trackList-sub-middle-container .noMatch {
+    align-self: center;
+}
+
 .trackList-sub-middle-container .track {
     display: flex;
     background-color: #2e2e2e;
