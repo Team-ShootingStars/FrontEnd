@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 import "../styles/AboutUsPage.css"
-import BgAnimation from "../components/BgAnimation";
+import BgAnimation from "../components/background/BgAnimation";
 import runner from "../assets/runner.gif";
 import logo from "../assets/logo.png";
 
@@ -28,16 +28,22 @@ function AboutUsPage() {
         e.preventDefault();
     };
 
-    const memberDiv = (img, name, position, etc) => {
+    const memberDiv = (img, name, position, etc, link) => {
         return (
             <div className={"aboutUs-member"}>
-                <img
-                    className={"photo"}
-                    src={img} alt={img}
-                    onContextMenu={handleContextMenu}
-                    onMouseDown={handleMouseDown}
-                    onDragStart={handleDragStart}
-                />
+                <a
+                    href={"https://github.com/" + link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img
+                        className={"photo"}
+                        src={img} alt={img}
+                        onContextMenu={handleContextMenu}
+                        onMouseDown={handleMouseDown}
+                        onDragStart={handleDragStart}
+                    />
+                </a>
                 <div className={"introduce"}>
                     <p className={"name"}>{name}</p>
                     <p className={"position"}>{position}</p>
@@ -73,12 +79,12 @@ function AboutUsPage() {
                 <div className={"team-introduce-section"}>
                     <h2>Team Shooting Star</h2>
                     <div className={"aboutUs-member-container"}>
-                        {memberDiv(member1, "박건우", "Frontend", "TeamLeader")}
-                        {memberDiv(member2, "최상원", "Front, Back", "Project Manager")}
-                        {memberDiv(member3, "박경원", "Frontend", null)}
-                        {memberDiv(member4, "홍태균", "Frontend", null)}
-                        {memberDiv(member5, "송유현", "Backend", null)}
-                        {memberDiv(member6, "이재현", "Backend", null)}
+                        {memberDiv(member1, "박건우", "Frontend", "TeamLeader", "bingo4xg")}
+                        {memberDiv(member2, "최상원", "Front, Back", "Project Manager", "dnjs2721")}
+                        {memberDiv(member3, "박경원", "Frontend", null, "justashow")}
+                        {memberDiv(member4, "홍태균", "Frontend", null, "Hong-bjj")}
+                        {memberDiv(member5, "송유현", "Backend", null, "dbgus1006")}
+                        {memberDiv(member6, "이재현", "Backend", null, "jhlee343")}
                     </div>
                 </div>
             </div>

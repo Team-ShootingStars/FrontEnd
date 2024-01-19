@@ -1,9 +1,9 @@
 import React, {useCallback, useEffect, useRef, useState} from "react";
 import Footer from "../components/Footer";
-import TypingMainText from "../components/TypingMainText";
-import TypingInfo from "../components/TypingInfo";
+import TypingMainText from "../components/typingPage/TypingMainText";
+import TypingInfo from "../components/typingPage/TypingInfo";
 import Header from "../components/Header";
-import TypingInputText from "../components/TypingInputText";
+import TypingInputText from "../components/typingPage/TypingInputText";
 
 import "../styles/TypingPage.css"
 import axios from "axios";

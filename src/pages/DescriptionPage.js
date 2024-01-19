@@ -25,7 +25,7 @@ function DescriptionPage() {
                 const res = await axios.get('/api/' + params.codeLang + '/description/' + params.textId);
                 if (res.status === 200) {
                     setDES_DATA(res.data);
-                    setDescription(res.data.description.split(","))
+                    setDescription(res.data.description.split("/"))
                 }
             } catch (error) {
                 navigate("/NotFound");
@@ -49,10 +49,15 @@ function DescriptionPage() {
     
     const styleDescription = description.map((tag, index) => {
         return (
-            <div key={index} className={"tag-back"}>
-                <div className={"tag"}>
-                    {tag.trim()}
-                </div>
+            <div key={index}>
+                {tag.trim().length !== 0
+                    ?
+                    <div className={"tag-back"}>
+                        <div className={"tag"}>
+                            {tag.trim()}
+                        </div>
+                    </div>
+                    : ""}
             </div>
         );
     });
@@ -71,7 +76,11 @@ function DescriptionPage() {
                     <h2 className="description-info-title">
                         {DES_DATA.title}
                     </h2>
-                    <p className={"description-info-provider"}>Provider : {DES_DATA.author}</p>
+                    <p className={"description-info-provider"}>
+                        Provider : <a href={"https://github.com/" + DES_DATA.author}
+                                      target="_blank"
+                                      rel="noopener noreferrer">{DES_DATA.author}</a>
+                    </p>
                     <div className={"description-info-tags"}>
                         {styleDescription}
                     </div>

@@ -1,0 +1,250 @@
+.trackList-container {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 80px;
+    height: calc(100vh - 86px);
+    animation: scaleIn 1s forwards;
+}
+
+.trackList-main-container {
+    width: 1000px;
+}
+
+.trackList-top-sub-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-sub-container-left h1 {
+    font-size: 40px;
+    padding-left: 30px;
+}
+
+.top-sub-container-center input {
+    width: 360px;
+    height: 32px;
+    padding: 1px 10px;
+    font-size: 17px;
+    color: white;
+    background-color: #2e2e2e;
+    border: 2px solid #2e2e2e;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+}
+
+.top-sub-container-center select {
+    margin-left: 5px;
+    padding: 1px 5px;
+    height: 37px;
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    background-color: #2e2e2e;
+    border: 2px solid #2e2e2e;
+    border-radius: 12px;
+}
+
+.top-sub-container-center input:focus,
+.top-sub-container-center select:focus {
+    outline: none;
+}
+
+
+.top-sub-container-center input:focus {
+    border: 2px solid #9400FF;
+}
+
+.top-sub-container-right button {
+    margin-right: 10px;
+    border: #2e2e2e solid 2px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: bold;
+    height: 46px;
+    padding: 0 20px;
+    cursor: pointer;
+    color: white;
+    background: #2e2e2e;
+    transition: all 0.3s ease;
+}
+
+.top-sub-container-right button:hover {
+    border: #9400FF solid 2px;
+    background-color: #9400FF;
+}
+
+.trackList-sub-middle-container {
+    border-radius: 20px;
+    background-color: #1e1e1e;
+    height: 590px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.trackList-sub-middle-container .noMatch {
+    align-self: center;
+}
+
+.trackList-sub-middle-container .track {
+    display: flex;
+    background-color: #2e2e2e;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    margin: 0;
+    border-left: 20px solid #9400FF;
+    border-radius: 20px;
+    height: 80px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    animation: scaleIn 0.5s forwards;
+    /*box-shadow: 5px 5px 10px rgba(255, 255, 255, 0.07);*/
+}
+
+.trackList-sub-middle-container .track:hover {
+    border-left: #9400FF solid 2px;
+    background-color: #9400FF;
+}
+
+    /*.trackList-sub-middle-container .track:last-child {*/
+/*    border-bottom: 1px solid white;*/
+/*}*/
+
+.track-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.track-left h3{
+    padding: 0 0 0 5px;
+    margin: 0;
+    font-size: 25px;
+}
+
+.track-left .description-tags {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.description-tags .tag-back {
+    background-color: #1e1e1e;
+    border: 2px solid #1e1e1e;
+    border-radius: 12px;
+}
+
+.description-tags .tag {
+    padding: 2px 5px;
+    font-size: 11px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #00ffff, #0066ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.track-right button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: #1e1e1e solid 2px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    height: 46px;
+    width: 130px;
+    min-width: 130px;
+    padding: 0 20px;
+    cursor: pointer;
+    color: white;
+    background: #1e1e1e;
+    transition: all 0.3s ease;
+}
+
+
+.track-right .button-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.track-right button:hover {
+    border: white solid 2px;
+    background-color: white;
+    color: black;
+}
+
+.trackList-sub-bottom-container {
+    display: flex;
+    justify-content: center;
+    margin: 50px 0;
+    padding: 0;
+}
+
+.trackList-sub-bottom-container .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.pagination .page-big-prev-button,
+.pagination .page-prev-button,
+.pagination .page-big-next-button,
+.pagination .page-next-button {
+    border-radius: 50px;
+    background-color: #2e2e2e;
+    color: white;
+    width: 40px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination .page-prev-button {
+    margin-left: 5px;
+    margin-right: 10px;
+}
+
+.pagination .page-next-button {
+    margin-right: 5px;
+    margin-left: 10px;
+}
+
+.pagination .page-big-prev-button:disabled,
+.pagination .page-prev-button:disabled,
+.pagination .page-big-next-button:disabled,
+.pagination .page-next-button:disabled {
+    background-color: #1e1e1e;
+}
+
+.pagination .page-number-button {
+    background-color: #2e2e2e;
+    border-radius: 5px;
+    color: white;
+    width: 40px;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.trackList-sub-bottom-container .pagination button.selected{
+    background-color: white;
+    color: black;
+}
