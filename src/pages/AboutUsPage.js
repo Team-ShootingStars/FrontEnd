@@ -79,7 +79,7 @@ function AboutUsPage() {
                 <div className={"team-introduce-section"}>
                     <h2>Team Shooting Star</h2>
                     <div className={"aboutUs-member-container"}>
-                        {memberDiv(member1, "박건우", "Frontend", "TeamLeader", "bingo4xg")}
+                        {memberDiv(member1, "박건우", "Frontend", "Team Leader", "bingo4xg")}
                         {memberDiv(member2, "최상원", "Front, Back", "Project Manager", "dnjs2721")}
                         {memberDiv(member3, "박경원", "Frontend", null, "justashow")}
                         {memberDiv(member4, "홍태균", "Frontend", null, "Hong-bjj")}
