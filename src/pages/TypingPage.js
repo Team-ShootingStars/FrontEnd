@@ -197,7 +197,7 @@ function TypingPage() {
     };
     const handleMoveCodeList = () => {
         handleCloseTypingCompleteModal()
-        navigate("/" + params.codeLang);
+        navigate("/" + params.codeLang + "/list");
     };
 
     if (isLoading) {

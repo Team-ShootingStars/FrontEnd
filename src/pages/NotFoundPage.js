@@ -9,7 +9,7 @@ function NotFoundPage() {
     const [typedText, setTypedText] = useState('');
 
     useEffect(() => {
-        const originalText = "페이지를 찾을 수 없습니다.";
+        const originalText = "PAGE NOT FOUND";
         let currentIndex = 0;
 
         const interval = setInterval(() => {
@@ -50,7 +50,7 @@ function NotFoundPage() {
                         onDragStart={handleDragStart}
                     />
                     <h1 className={"error404Page-h1"}>{typedText}<span className="error404Page-cursor-animation"></span></h1>
-                    <p className={"error404Page-p"}>죄송합니다. 요청하신 페이지를 찾을 수 없습니다.</p>
+                    <p className={"error404Page-p"}>Sorry, the page you requested could not be found.</p>
                 </div>
             </div>
             <Footer />

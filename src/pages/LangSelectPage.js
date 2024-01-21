@@ -72,6 +72,17 @@ function LangSelectPage() {
     }
   };
 
+  const langButton = (type, img) => {
+    return (
+        <img
+            src={img}
+            alt={type}
+            onClick={() => handleLangButtonClick(type)}
+            className={`${type} ${selectedLang === type ? "selected" : ""}`}
+        />
+    )
+  }
+
   return (
     <div className="lang-select-page">
       <KeyboardLayout/>
@@ -85,34 +96,12 @@ function LangSelectPage() {
           onDragStart={handleDragStart}
         >
           <div className="lang-button-container-1st">
-            <img
-              src={javaIco}
-              alt={"자바"}
-              onClick={() => handleLangButtonClick("JAVA")}
-              className={selectedLang === "JAVA" ? "JAVA selected" : "JAVA"}
-            />
-            <img
-              src={jsIco}
-              alt={"자바스크립트"}
-              onClick={() => handleLangButtonClick("JS")}
-              className={selectedLang === "JS" ? "JS selected" : "JS"}
-            />
+            {langButton("JAVA", javaIco)}
+            {langButton("JS", jsIco)}
           </div>
           <div className="lang-button-container-2st">
-            <img
-              src={cppIco}
-              alt={"CPP"}
-              onClick={() => handleLangButtonClick("CPP")}
-              className={selectedLang === "CPP" ? "CPP selected" : "CPP"}
-            />
-            <img
-              src={pythonIco}
-              alt={"Python"}
-              onClick={() => handleLangButtonClick("PYTHON")}
-              className={
-                selectedLang === "PYTHON" ? "PYTHON selected" : "PYTHON"
-              }
-            />
+            {langButton("CPP", cppIco)}
+            {langButton("PYTHON", pythonIco)}
           </div>
         </div>
         <div className={"lang-bottom-button-container"}>

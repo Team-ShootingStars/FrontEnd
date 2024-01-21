@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 import axios from "axios";
 
 import "../styles/DescriptionPage.css";
-import DescriptionText from "../components/DescriptionText";
+import DescriptionText from "../components/descriptionPage/DescriptionText";
 import Loading from "../components/Loading";
 
 function DescriptionPage() {
