@@ -7,7 +7,7 @@ const KeyboardKey = ({ value, span }) => {
     useEffect(() => {
         const intervalId = setInterval(() => {
             setIsActive(Math.random() < 0.1);
-        }, 3000);
+        }, 2500);
 
         return () => clearInterval(intervalId);
     }, []);
