@@ -14,6 +14,7 @@ import Loading from "../components/Loading";
 function TypingPage() {
     const [LONG_TEXTS, setLONG_TEXTS] = useState(['']);
     const [totalIndex, setTotalIndex] = useState(0);
+    const [author, setAuthor] = useState('');
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const [inputValue, setInputValue] = useState('');
@@ -42,10 +43,12 @@ function TypingPage() {
         const fetchData = async () => {
             setIsLoading(true); // 데이터 불러오기 시작
             try {
-                const res = await axios.get('/api/typingText/' + params.textId);
+                const res = await axios.get('/api/' + params.codeLang + '/typingText/' + params.textId);
                 if (res.status === 200) {
-                    setLONG_TEXTS(res.data);
-                    setTotalIndex(res.data.length);
+                    const text = JSON.parse(res.data.typingText);
+                    setLONG_TEXTS(text);
+                    setTotalIndex(text.length);
+                    setAuthor(res.data.author)
                 }
             } catch (error) {
                 navigate("/NotFound");
@@ -217,6 +220,7 @@ function TypingPage() {
                 <TypingInfo
                     currentIndex={currentIndex}
                     totalIndex={totalIndex}
+                    author={author}
                     typingSpeed={typingSpeed}
                     elapsedTime={formatTime(elapsedTime)}
                     isModalOpen={showCompleteModal}

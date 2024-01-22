@@ -83,6 +83,18 @@
     left: 215px;
 }
 
+.typingPage-info-container .offer a{
+    padding-left: 1px;
+    text-decoration: none;
+    color: white;
+    margin: 0;
+    transition: color 0.3s ease;
+}
+
+.typingPage-info-container .offer a:hover {
+    color: #007bff;
+}
+
 .progress-bar-container {
     height: 5px;
     background-color: #2e2e2e;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import runner from "../../assets/runner.gif";
 
-function TypingInfo({ totalIndex, currentIndex, elapsedTime, typingSpeed, isModalOpen }) {
+function TypingInfo({ totalIndex, currentIndex, elapsedTime, typingSpeed, isModalOpen, author}) {
     const [progressWidth, setProgressWidth] = useState(0);
 
     useEffect(() => {
@@ -35,7 +35,9 @@ function TypingInfo({ totalIndex, currentIndex, elapsedTime, typingSpeed, isModa
                 Pace: <span className={"red-text"}>{typingSpeed}</span>
             </p>
             <p className={"time"}>Time: {elapsedTime}</p>
-            <p className={"offer"}>Provider : ShootingStar</p>
+            <p className={"offer"}>Provider : <a href={"https://github.com/" + author}
+                                                 target="_blank"
+                                                 rel="noopener noreferrer">{author}</a></p>
             <div className="progress-bar-container">
                 <div className="progress-bar" style={{ width: `${progressWidth}%` }}></div>
                 <div className="image-overlay" style={imagePosition}>
