@@ -8,6 +8,11 @@ function TypingInputText({text, inputValue, handleInputFocus, handleInputChange,
         }
     }, [inputRef, isModalOpen]);
 
+    useEffect(() => {
+        // 컴포넌트가 마운트될 때 input 요소에 포커스 설정
+        inputRef.current.focus();
+    }, [inputRef]);
+
     const handlePaste = useCallback((e) => {
         e.preventDefault();
         // 붙여넣기 시도가 있으면 입력을 취소합니다.
@@ -73,6 +78,7 @@ function TypingInputText({text, inputValue, handleInputFocus, handleInputChange,
                     if (e.key === 'Enter') handleEnterPress();
                 }}
                 autoComplete={"off"}
+                spellCheck={"false"}
                 ref={inputRef}
             />
         </div>

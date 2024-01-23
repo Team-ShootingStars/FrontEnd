@@ -21,7 +21,7 @@ function TrackListPage() {
     const [totalRecord, setTotalRecord] = useState(0);
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPage, setTotalPage] = useState(0);
-    const [sortingType, setSortingType] = useState("ID_ASC");
+    const [sortingType, setSortingType] = useState("DATE_ASC");
     const [searchValue, setSearchValue] = useState("");
     const [inputValue, setInputValue] = useState("");
 
@@ -34,7 +34,7 @@ function TrackListPage() {
             }
             try {
                 // url값 정의 + 검색값 있으면 뒤에 붙임
-                let url = '/api/'+ params.codeLang + '/list?page=' + currentPage + '&sortingType=' + sortingType;
+                let url = '/api/'+ params.codeLang + '/list?page=' + (currentPage - 1) + '&sortingType=' + sortingType;
                 if (searchValue !== "" ) {
                     url += "&search=" + searchValue;
                 }
@@ -42,9 +42,9 @@ function TrackListPage() {
                 const res = await axios.get(url);
 
                 if (res.status === 200) {
-                    setTotalRecord(res.data.page.totalRecord);
-                    setTotalPage(res.data.page.totalPage);
-                    setPosts(res.data.texts);
+                    setTotalRecord(res.data.totalElements);
+                    setTotalPage(res.data.totalPages);
+                    setPosts(res.data.content);
                 }
             } catch (error) {
                 navigate("/NotFound");

@@ -61,17 +61,43 @@ function DescriptionText({longText, lang}) {
                 </p>
             );
         } else if (blockCommentStartMatch) { // 블럭 주석이 시작된 경우
-            inBlockComment = true;
-            const beforeComment = line.split(blockCommentStartMatch)[0]; // 주석 이전 부분
 
-            return (
-                <p key={lineIndex} className={"description-text"}>
-                    {beforeComment}
-                    <span className="comment">
+            let blockCommentEndMatch
+            if (lang === "JAVA" || lang === "JS" || lang === "CPP") {
+                blockCommentEndMatch = line.match(/.*\*\//) // 주석 내부 부분
+            } else if (lang === "PYTHON") { // 해당 줄에서 """ 혹은 '''  를 찾는다. 있다면 해당 라인에서 블럭 주석이 끝난다.
+                blockCommentEndMatch = line.match(/['"]{3}.*['"]{3}/); // 주석 내부 부분
+            }
+            console.log(blockCommentEndMatch)
+
+
+            if (blockCommentEndMatch) {
+                const beforeComment = line.split(blockCommentStartMatch)[0]; // 주석 이전 부분
+
+                const afterComment = line.split(blockCommentEndMatch)[1];
+                const comment = line.split(beforeComment)[1].split(afterComment)[0];
+
+                return (
+                    <p key={lineIndex} className={"description-text"}>
+                        {beforeComment}
+                        <span className="comment">{comment}</span>
+                        {afterComment}
+                    </p>
+                );
+            } else {
+                inBlockComment = true;
+                
+                const beforeComment = line.split(blockCommentStartMatch)[0]; // 주석 이전 부분
+
+                return (
+                    <p key={lineIndex} className={"description-text"}>
+                        {beforeComment}
+                        <span className="comment">
                         {blockCommentStartMatch}
                     </span>
-                </p>
-            );
+                    </p>
+                );
+            }
         } else { // 주석이 없는 라인인 경우
             return (
                 <p key={lineIndex} className={"description-text"}>{line}</p>
