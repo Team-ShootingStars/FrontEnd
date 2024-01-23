@@ -47,7 +47,7 @@ function TrackListPage() {
                     setPosts(res.data.content);
                 }
             } catch (error) {
-                // navigate("/NotFound");
+                navigate("/NotFound");
             } finally {
                 if (isFirstLoading) {
                     setIsLoading(false); // 데이터 불러오기 완료
