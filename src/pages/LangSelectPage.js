@@ -24,7 +24,8 @@ function LangSelectPage() {
 
   const handleSelectDescBtnClick = () => {
     if (selectedLang) {
-      navigate(`/${selectedLang}/list`);
+      const encodeLang = encodeURIComponent(selectedLang);
+      navigate(`/${encodeLang}/list`);
     } else {
       openModal();
     }
@@ -56,12 +57,15 @@ function LangSelectPage() {
       // selectedLang이 존재하는 경우에만 로직을 실행
       if (selectedLang) {
         // 서버로부터 랜덤 textId를 가져오기 위한 GET 요청
-        const response = await axios.get(`/api/${selectedLang}/random`);
+        const encodeLang = encodeURIComponent(selectedLang);
+        const response = await axios.get(`/api/${encodeLang}/random`);
         // 응답 상태가 200인 경우에만 다음 단계로 진행
         if (response.status === 200) {
           const textId = response.data; // 서버에서 반환된 textId 추출
+          const encodeId = encodeURIComponent(textId);
+
           // 새로운 경로를 생성하고 해당 경로로 이동
-          navigate(`/${selectedLang}/description/${textId}`);
+          navigate(`/${encodeLang}/description/${encodeId}`);
         }
       } else {
         openModal();

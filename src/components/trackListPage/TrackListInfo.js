@@ -8,13 +8,15 @@ function TrackListInfo({lang, inputValue, handleInputChange, handleEnterPress, s
     const handleRandomDescBtnClick = async () => {
         // 에러 핸들링을 위한 try-catch 블록
         try {
+            const encodeLang = encodeURIComponent(lang);
             // selectedLang이 존재하는 경우에만 로직을 실행
-            const response = await axios.get(`/api/${lang}/random`);
+            const response = await axios.get(`/api/${encodeLang}/random`);
             // 응답 상태가 200인 경우에만 다음 단계로 진행
             if (response.status === 200) {
                 const textId = response.data; // 서버에서 반환된 textId 추출
+                const encodeId = encodeURIComponent(textId);
                 // 새로운 경로를 생성하고 해당 경로로 이동
-                navigate(`/${lang}/description/${textId}`);
+                navigate(`/${encodeLang}/description/${encodeId}`);
             }
         } catch (error) {
             // 오류 발생시 콘솔에 에러 기록

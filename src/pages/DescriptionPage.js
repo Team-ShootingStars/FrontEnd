@@ -22,7 +22,7 @@ function DescriptionPage() {
         const fetchData = async () => {
             setIsLoading(true); // 데이터 불러오기 시작
             try {
-                const res = await axios.get('/api/' + params.codeLang + '/description/' + params.textId);
+                const res = await axios.get('/api/' + encodeURIComponent(params.codeLang) + '/description/' + encodeURIComponent(params.textId));
                 if (res.status === 200) {
                     setDES_DATA(res.data);
                     setDescription(res.data.description.split("/"))
@@ -43,7 +43,9 @@ function DescriptionPage() {
 
     const startTyping = () => {
       // TypingPage 이동
-      navigate("/" + params.codeLang + "/typing/" + params.textId);
+        const encodeLang = encodeURIComponent(params.codeLang);
+        const encodeId = encodeURIComponent(params.textId);
+        navigate("/" + encodeLang + "/typing/" + encodeId);
     };
 
     
