@@ -38,6 +38,7 @@ function TrackListInfo({lang, inputValue, handleInputChange, handleEnterPress, s
                         if (e.key === 'Enter') handleEnterPress();
                     }}
                     autoComplete={"off"}
+                    spellCheck={"false"}
                 />
 
                 <select
@@ -45,10 +46,10 @@ function TrackListInfo({lang, inputValue, handleInputChange, handleEnterPress, s
                     value={sortingType}
                     onChange={handleSortingChange}
                 >
-                    <option id={"sortingType1"} value="TITLE_ASC">Title ⬆️</option>
-                    <option id={"sortingType2"} value="TITLE_DESC">Title ⬇️</option>
-                    <option id={"sortingType3"} value="ID_ASC">Up to Date</option>
-                    <option id={"sortingType4"} value="ID_DESC">Out of Date</option>
+                    <option id={"sortingType1"} value="DATE_ASC">Up to Date</option>
+                    <option id={"sortingType2"} value="DATE_DESC">Out of Date</option>
+                    <option id={"sortingType3"} value="TITLE_ASC">Title ⬆️</option>
+                    <option id={"sortingType4"} value="TITLE_DESC">Title ⬇️</option>
                 </select>
             </div>
             <div className="top-sub-container-right">
