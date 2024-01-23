@@ -79,7 +79,7 @@ function TrackListPage() {
     }
 
     const handleBigPrevious = () => {
-        const newPage = Math.max(0, currentPage - 5); // 한 번에 5 페이지씩 이전으로 이동
+        const newPage = Math.max(1, currentPage - 5); // 한 번에 5 페이지씩 이전으로 이동
         setCurrentPage(newPage);
     };
 
