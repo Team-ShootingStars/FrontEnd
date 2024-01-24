@@ -1,8 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
-function TrackListInfo({lang, inputValue, handleInputChange, handleEnterPress, sortingType, handleSortingChange}) {
+function TrackListInfo({lang, inputValue, handleInputChange, handleEnterPress, sortingType, handleSortingChange, resetList, sortingSelectRef}) {
     const navigate = useNavigate();
 
     const handleRandomDescBtnClick = async () => {
@@ -27,7 +26,7 @@ function TrackListInfo({lang, inputValue, handleInputChange, handleEnterPress, s
     return (
         <div className="trackList-top-sub-container">
             <div className="top-sub-container-left">
-                <h1>{lang}</h1>
+                <h1 onClick={resetList}>{lang}</h1>
             </div>
             <div className={"top-sub-container-center"}>
                 <input
@@ -47,6 +46,7 @@ function TrackListInfo({lang, inputValue, handleInputChange, handleEnterPress, s
                     id={"sortingType"}
                     value={sortingType}
                     onChange={handleSortingChange}
+                    ref={sortingSelectRef}
                 >
                     <option id={"sortingType1"} value="DATE_ASC">Up to Date</option>
                     <option id={"sortingType2"} value="DATE_DESC">Out of Date</option>

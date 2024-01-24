@@ -64,19 +64,24 @@ function DescriptionText({longText, lang}) {
 
             let blockCommentEndMatch
             if (lang === "JAVA" || lang === "JS" || lang === "CPP") {
-                blockCommentEndMatch = line.match(/.*\*\//) // 주석 내부 부분
+                blockCommentEndMatch = line.match(/\/\*.*\*\//) // 주석 내부 부분
             } else if (lang === "PYTHON") { // 해당 줄에서 """ 혹은 '''  를 찾는다. 있다면 해당 라인에서 블럭 주석이 끝난다.
                 blockCommentEndMatch = line.match(/['"]{3}.*['"]{3}/); // 주석 내부 부분
             }
-            console.log(blockCommentEndMatch)
-
 
             if (blockCommentEndMatch) {
-                const beforeComment = line.split(blockCommentStartMatch)[0]; // 주석 이전 부분
-
-                const afterComment = line.split(blockCommentEndMatch)[1];
-                const comment = line.split(beforeComment)[1].split(afterComment)[0];
-
+                let beforeComment;
+                let afterComment;
+                let comment;
+                if (lang === "PYTHON") {
+                    beforeComment = line.split(blockCommentStartMatch)[0]; // 주석 이전 부분
+                    afterComment = line.split(blockCommentEndMatch)[1];
+                    comment = line.split(beforeComment)[1].split(afterComment)[0];
+                } else {
+                    beforeComment = line.split(blockCommentStartMatch)[0]; // 주석 이전 부분
+                    afterComment = line.split(blockCommentEndMatch)[1];
+                    comment = blockCommentEndMatch;
+                }
                 return (
                     <p key={lineIndex} className={"description-text"}>
                         {beforeComment}

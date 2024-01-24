@@ -26,6 +26,7 @@ function TrackListPage() {
     const [inputValue, setInputValue] = useState("");
 
     let isFirstLoading = useRef(true);
+    const sortingSelectRef = useRef(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -61,6 +62,7 @@ function TrackListPage() {
 
     const handleSortingChange = (event) => {
         setSortingType(event.target.value);
+        setCurrentPage(1);
     }
 
     const handleInputChange = (e) => {
@@ -69,6 +71,7 @@ function TrackListPage() {
 
     const handleEnterPress = () => {
         setSearchValue(inputValue);
+        setCurrentPage(1);
     }
 
     const handleBigPrevious = () => {
@@ -90,9 +93,16 @@ function TrackListPage() {
         setCurrentPage(newPage);
     };
 
-
     const changeCurrentPage = (page) => {
         setCurrentPage(page)
+    }
+
+    const resetList = () => {
+        setCurrentPage(1);
+        setSortingType("DATE_ASC");
+        sortingSelectRef.current.value = "DATE_ASC";
+        setInputValue("");
+        setSearchValue("");
     }
 
     if (isLoading) {
@@ -112,6 +122,8 @@ function TrackListPage() {
                         handleInputChange={handleInputChange}
                         handleEnterPress={handleEnterPress}
                         handleSortingChange={handleSortingChange}
+                        resetList={resetList}
+                        sortingSelectRef={sortingSelectRef}
                     />
                     <TrackList
                         totalRecord={totalRecord}

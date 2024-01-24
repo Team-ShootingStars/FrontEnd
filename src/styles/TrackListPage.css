@@ -22,6 +22,7 @@
 .top-sub-container-left h1 {
     font-size: 40px;
     padding-left: 30px;
+    cursor: pointer;
 }
 
 .top-sub-container-center input {
