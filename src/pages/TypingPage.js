@@ -43,7 +43,7 @@ function TypingPage() {
         const fetchData = async () => {
             setIsLoading(true); // 데이터 불러오기 시작
             try {
-                const res = await axios.get('/api/' + params.codeLang + '/typingText/' + params.textId);
+                const res = await axios.get('/api/' + encodeURIComponent(params.codeLang) + '/typingText/' + encodeURIComponent(params.textId));
                 if (res.status === 200) {
                     const text = JSON.parse(res.data.typingText);
                     setLONG_TEXTS(text);
@@ -200,7 +200,7 @@ function TypingPage() {
     };
     const handleMoveCodeList = () => {
         handleCloseTypingCompleteModal()
-        navigate("/" + params.codeLang + "/list");
+        navigate("/" + encodeURIComponent(params.codeLang) + "/list");
     };
 
     if (isLoading) {

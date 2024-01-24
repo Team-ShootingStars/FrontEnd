@@ -34,9 +34,9 @@ function TrackListPage() {
             }
             try {
                 // url값 정의 + 검색값 있으면 뒤에 붙임
-                let url = '/api/'+ params.codeLang + '/list?page=' + (currentPage - 1) + '&sortingType=' + sortingType;
+                let url = '/api/'+ encodeURIComponent(params.codeLang) + '/list?page=' + encodeURIComponent(currentPage - 1) + '&sortingType=' + encodeURIComponent(sortingType);
                 if (searchValue !== "" ) {
-                    url += "&search=" + searchValue;
+                    url += "&search=" + encodeURIComponent(searchValue);
                 }
                 // url 적용
                 const res = await axios.get(url);
@@ -68,14 +68,7 @@ function TrackListPage() {
     };
 
     const handleEnterPress = () => {
-        let value = inputValue;
-        if (inputValue.indexOf("\\") !== -1) {
-            value = value.replaceAll("\\", '');
-        }
-        if (inputValue.indexOf("|") !== -1) {
-            value = value.replaceAll("|", '');
-        }
-        setSearchValue(value);
+        setSearchValue(inputValue);
     }
 
     const handleBigPrevious = () => {

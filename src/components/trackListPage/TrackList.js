@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 function TrackList({totalRecord, posts, lang}) {
     const navigate = useNavigate();
     const handleTrackClick = (id) => {
-        navigate(`/${lang}/description/${id}`);
+        const encodeLang = encodeURIComponent(lang);
+        const encodeId = encodeURIComponent(id);
+        navigate(`/${encodeLang}/description/${encodeId}`);
     }
 
     const handleAuthorButtonClick = (e, author) => {
