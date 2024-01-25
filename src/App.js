@@ -12,7 +12,7 @@ import AboutUsPage from "./pages/AboutUsPage"
 function App() {
     return (
         <div className="App">
-            <BrowserRouter>
+            <BrowserRouter basename={process.env.PUBLIC_URL}>
                 <Routes>
                     <Route path={"/"} element={<LangSelectPage/>}/>
                     <Route path={":codeLang/list"} element={<TrackListPage/>}/>
