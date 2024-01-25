@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import './App.css';
 
 import TypingPage from "./pages/TypingPage";
@@ -12,7 +12,7 @@ import AboutUsPage from "./pages/AboutUsPage"
 function App() {
     return (
         <div className="App">
-            <Router>
+            <BrowserRouter>
                 <Routes>
                     <Route path={"/"} element={<LangSelectPage/>}/>
                     <Route path={":codeLang/list"} element={<TrackListPage/>}/>
@@ -20,9 +20,9 @@ function App() {
                     <Route path={":codeLang/typing/:textId"} element={<TypingPage/>}/>
                     <Route path="/NotFound" element={<NotFoundPage />} />
                     <Route path="/AboutUs" element={<AboutUsPage />} />
-                    <Route path={"*"} element={<NotFoundPage/>} />
+                    <Route path="/*" element={<NotFoundPage/>} />
                 </Routes>
-            </Router>
+            </BrowserRouter>
         </div>
     );
 }
